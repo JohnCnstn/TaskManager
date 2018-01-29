@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
-      xmlns:spring="http://java.sun.com/xml/ns/javaee">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 </head>
 <body>
@@ -12,12 +11,10 @@
         <table class="table">
             <tbody>
 
-                <spring:url value="/projectInfo" var="projectInfoUrl"/>
-
                     <tr th:each="project : ${projectList}">
                         <td th:text="${project.name}">1</td>
                         <td>
-                            <a th:href="@{/projectInfo/{id}(id=${project.id})}">More</a>
+                            <a th:href="@{/project/{id}(id=${project.id})}">More</a>
                         </td>
                     </tr>
 
