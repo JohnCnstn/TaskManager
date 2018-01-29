@@ -15,5 +15,4 @@ public class Manager extends User{
     @Setter
     @OneToMany(mappedBy="manager")
     private Set<Project> projects;
-
 }

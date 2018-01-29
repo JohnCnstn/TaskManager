@@ -35,4 +35,8 @@ public class Project {
     @ManyToOne
     @JoinColumn(name="manager_id", nullable=false)
     private Manager manager;
+
+    @ManyToOne
+    @JoinColumn(name="worker_id", nullable=false)
+    private Worker worker;
 }
