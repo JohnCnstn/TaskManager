@@ -1,19 +1,33 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://java.sun.com/xml/ns/javaee">
 <head>
 </head>
 <body>
 
 <div class="container">
 
-    <div sec:authorize="hasAuthority('ROLE_WORKER')" > Has Authority WORKER
+    <div sec:authorize="hasAuthority('ROLE_WORKER')" >
+
+        <table class="table">
+            <tbody>
+
+                <spring:url value="/projectInfo" var="projectInfoUrl"/>
+
+                    <tr th:each="project : ${projectList}">
+                        <td th:text="${project.name}">1</td>
+                        <td>
+                            <a th:href="@{/projectInfo/{id}(id=${project.id})}">More</a>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
 
         <div class="starter-template">
-            <h1>User page (Spring Security protected)</h1>
 
-            <h1 th:inline="text">Hello!</h1>
             <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Sign Out"/>
+                <input type="submit" value="Logout"/>
             </form>
 
         </div>
