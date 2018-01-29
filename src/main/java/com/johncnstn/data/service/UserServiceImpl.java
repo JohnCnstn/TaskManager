@@ -26,12 +26,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Transactional(readOnly = true)
     public CustomUserDetail loadUserByUsername(String userName)
             throws UsernameNotFoundException {
-        User user = getByUserName(userName);
+        User user = userRepository.findByUserName(userName);
         if (user == null) {
             throw new UsernameNotFoundException("Username not found");
         }
 
-        CustomUserDetail customUserDetail=new CustomUserDetail();
+        CustomUserDetail customUserDetail = new CustomUserDetail();
         customUserDetail.setUser(user);
         customUserDetail.setAuthorities(getGrantedAuthorities(user));
 
@@ -45,10 +45,5 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         UserProfile userProfile = user.getUserProfile();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + userProfile.getType()));
         return authorities;
-    }
-
-    @Override
-    public User getByUserName(String userName) {
-        return userRepository.findByUserName(userName);
     }
 }

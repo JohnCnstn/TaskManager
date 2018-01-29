@@ -1,7 +1,7 @@
 package com.johncnstn.data.service;
 
-import com.johncnstn.data.entity.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService {
-    User getByUserName(String userName);
 }
