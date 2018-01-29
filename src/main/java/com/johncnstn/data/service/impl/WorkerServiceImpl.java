@@ -3,9 +3,11 @@ package com.johncnstn.data.service.impl;
 import com.johncnstn.data.dto.UserDto;
 import com.johncnstn.data.entity.User;
 import com.johncnstn.data.entity.Worker;
+import com.johncnstn.data.entity.WorkerQualification;
 import com.johncnstn.data.repository.UserRepository;
 import com.johncnstn.data.repository.WorkerRepository;
 import com.johncnstn.data.service.UserProfileService;
+import com.johncnstn.data.service.WorkerQualificationService;
 import com.johncnstn.data.service.WorkerService;
 import com.johncnstn.exception.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,9 @@ public class WorkerServiceImpl implements WorkerService {
     @Autowired
     private UserProfileService userProfileService;
 
+    @Autowired
+    private WorkerQualificationService workerQualificationService;
+
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
@@ -50,6 +55,8 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setFirstName(userDto.getFirstName());
         worker.setLastName(userDto.getLastName());
         worker.setEmail(userDto.getEmail());
+
+        worker.setWorkerQualification(workerQualificationService.getByType("JUNIOR"));
 
         worker.setUserProfile(userProfileService.getByType("WORKER"));
 
