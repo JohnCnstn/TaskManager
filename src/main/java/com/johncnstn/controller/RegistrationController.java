@@ -7,6 +7,7 @@ import com.johncnstn.exception.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,19 +31,17 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView registerUserAccount
-            (@ModelAttribute("user") @Valid UserDto accountDto,
-             BindingResult result, Errors errors) {
-        User registered = new User();
-        ModelAndView modelAndView = new ModelAndView();
+    public String registerUserAccount(@Valid @ModelAttribute("user") UserDto userDto, BindingResult result) {
+
         if (!result.hasErrors()) {
-            registered = createUserAccount(accountDto, result);
-            modelAndView.setView("login");
+            createUserAccount(userDto, result);
         }
-        if (registered == null) {
-            result.rejectValue("email", "message.regError");
+
+        if (result.hasErrors()) {
+            return "registration";
+        } else {
+            return "redirect:login.html";
         }
-        return modelAndView;
     }
 
     private User createUserAccount(UserDto accountDto, BindingResult result) {
