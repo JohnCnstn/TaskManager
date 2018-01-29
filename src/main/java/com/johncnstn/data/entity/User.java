@@ -1,6 +1,5 @@
 package com.johncnstn.data.entity;
 
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,61 +8,52 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.annotation.Transient;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private int id;
-
-    @Column(name = "email")
-    @Email(message = "*Please provide a valid Email")
-    @NotEmpty(message = "*Please provide an email")
-    @Setter
     @Getter
-    private String email;
+    @Setter
+    @Column(name = "id", nullable = false)
+    private long id;
+
+    @Column(name = "userName")
+    @Getter
+    @Setter
+    private String userName;
 
     @Column(name = "password")
-    @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your password")
-    @Transient
-    @Setter
     @Getter
+    @Setter
     private String password;
 
-    @Column(name = "firstName")
-    @NotEmpty(message = "*Please provide your name")
-    @Setter
+    @Column(name = "first_name")
     @Getter
+    @Setter
     private String firstName;
 
     @Column(name = "last_name")
-    @NotEmpty(message = "*Please provide your last name")
-    @Setter
     @Getter
+    @Setter
     private String lastName;
 
-    @Column(name = "active")
-    @Setter
+    @Column(name = "email")
     @Getter
-    private int active;
+    @Setter
+    private String email;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @Setter
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "user_profile_id", nullable = false)
     @Getter
-    private Set<Role> roles;
+    @Setter
+    private UserProfile userProfile;
 }

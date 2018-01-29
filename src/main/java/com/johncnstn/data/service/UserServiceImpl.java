@@ -1,71 +1,54 @@
 package com.johncnstn.data.service;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.johncnstn.data.dto.UserDto;
-import com.johncnstn.data.entity.Role;
+import com.johncnstn.data.detail.CustomUserDetail;
 import com.johncnstn.data.entity.User;
-import com.johncnstn.data.repository.RoleRepository;
+import com.johncnstn.data.entity.UserProfile;
 import com.johncnstn.data.repository.UserRepository;
-import com.johncnstn.exception.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
-@Service("userService")
-public class UserServiceImpl implements UserService{
+@Service("userServiceImpl")
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Qualifier("userRepository")
     @Autowired
     private UserRepository userRepository;
-    @Qualifier("roleRepository")
-    @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Override
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-
-    @Override
-    public void saveUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(1);
-        Role userRole = roleRepository.findByRole("ADMIN");
-        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-        userRepository.save(user);
-    }
-
-    @Transactional
-    @Override
-    public User registerNewUserAccount(UserDto accountDto) throws EmailExistsException {
-
-        if (emailExist(accountDto.getEmail())) {
-            throw new EmailExistsException(
-                    "There is an account with that email adress: "
-                            +  accountDto.getEmail());
+    @Transactional(readOnly = true)
+    public CustomUserDetail loadUserByUsername(String userName)
+            throws UsernameNotFoundException {
+        User user = getByUserName(userName);
+        if (user == null) {
+            throw new UsernameNotFoundException("Username not found");
         }
-        User user = new User();
-        user.setFirstName(accountDto.getFirstName());
-        user.setLastName(accountDto.getLastName());
-        user.setPassword(accountDto.getPassword());
-        user.setEmail(accountDto.getEmail());
 
-        return userRepository.save(user);
-    }
-    private boolean emailExist(String email) {
-        User user = userRepository.findByEmail(email);
-        if (user != null) {
-            return true;
-        }
-        return false;
+        CustomUserDetail customUserDetail=new CustomUserDetail();
+        customUserDetail.setUser(user);
+        customUserDetail.setAuthorities(getGrantedAuthorities(user));
+
+        return customUserDetail;
     }
 
+
+    private List<GrantedAuthority> getGrantedAuthorities(User user){
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        UserProfile userProfile = user.getUserProfile();
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + userProfile.getType()));
+        return authorities;
+    }
+
+    @Override
+    public User getByUserName(String userName) {
+        return userRepository.findByUserName(userName);
+    }
 }
