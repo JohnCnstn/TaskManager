@@ -44,8 +44,10 @@ public class WorkerServiceImpl implements WorkerService {
 
         Worker worker = new Worker();
 
+        worker.setUserName(userDto.getUserName());
         worker.setFirstName(userDto.getFirstName());
         worker.setLastName(userDto.getLastName());
+        worker.setEmail(userDto.getEmail());
 
         worker.setUserProfile(userProfileService.getByType("WORKER"));
 

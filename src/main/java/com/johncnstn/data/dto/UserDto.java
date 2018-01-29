@@ -12,6 +12,12 @@ public class UserDto {
     @NotEmpty
     @Setter
     @Getter
+    private String userName;
+
+    @NotNull
+    @NotEmpty
+    @Setter
+    @Getter
     private String firstName;
 
     @NotNull
