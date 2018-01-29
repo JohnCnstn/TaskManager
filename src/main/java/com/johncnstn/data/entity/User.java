@@ -44,11 +44,11 @@ public class User {
     @Getter
     private String password;
 
-    @Column(name = "name")
+    @Column(name = "firstName")
     @NotEmpty(message = "*Please provide your name")
     @Setter
     @Getter
-    private String name;
+    private String firstName;
 
     @Column(name = "last_name")
     @NotEmpty(message = "*Please provide your last name")
