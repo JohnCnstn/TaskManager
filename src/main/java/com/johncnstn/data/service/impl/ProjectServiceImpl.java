@@ -20,4 +20,14 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> findAll() {
         return projectRepository.findAll();
     }
+
+    @Override
+    public void delete(long id) {
+        projectRepository.delete(id);
+    }
+
+    @Override
+    public Project findOne(long id) {
+        return projectRepository.findOne(id);
+    }
 }

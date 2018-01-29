@@ -8,4 +8,6 @@ import java.util.List;
 @Service
 public interface ProjectService {
     List<Project> findAll();
+    void delete(long id);
+    Project findOne(long id);
 }
