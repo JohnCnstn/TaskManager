@@ -23,7 +23,7 @@ public class ProjectController {
     public String deleteProject(@PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("project", projectService.findOne(id));
         projectService.delete(id);
-        return "/project";
+        return "redirect:/home";
     }
 
 }
