@@ -1,9 +1,10 @@
-package com.johncnstn.data.service;
+package com.johncnstn.data.service.impl;
 
 import com.johncnstn.data.detail.CustomUserDetail;
 import com.johncnstn.data.entity.User;
 import com.johncnstn.data.entity.UserProfile;
 import com.johncnstn.data.repository.UserRepository;
+import com.johncnstn.data.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;

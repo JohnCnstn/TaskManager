@@ -1,10 +1,12 @@
-package com.johncnstn.data.service;
+package com.johncnstn.data.service.impl;
 
 import com.johncnstn.data.dto.UserDto;
 import com.johncnstn.data.entity.User;
 import com.johncnstn.data.entity.Worker;
 import com.johncnstn.data.repository.UserRepository;
 import com.johncnstn.data.repository.WorkerRepository;
+import com.johncnstn.data.service.UserProfileService;
+import com.johncnstn.data.service.WorkerService;
 import com.johncnstn.exception.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
