@@ -31,4 +31,8 @@ public class Project {
     @Setter
     @OneToMany(mappedBy="project")
     private Set<Task> tasks;
+
+    @ManyToOne
+    @JoinColumn(name="manager_id", nullable=false)
+    private Manager manager;
 }
