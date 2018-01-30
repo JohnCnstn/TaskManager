@@ -10,14 +10,17 @@
 
         <table class="table">
             <tbody>
-
-                    <tr th:each="project : ${projectList}">
+            <th:block th:each="project : ${projectList}">
+                    <tr>
                         <td th:text="${project.name}">1</td>
                         <td>
                             <a th:href="@{/project/{id}(id=${project.id})}">More</a>
                         </td>
                     </tr>
-
+                    <tr>
+                        <td th:text="${project.description}">1</td>
+                    </tr>
+            </th:block>
             </tbody>
         </table>
 

@@ -27,6 +27,11 @@ public class Project {
     @Setter
     private int quantity;
 
+    @Column(name = "description")
+    @Getter
+    @Setter
+    private String description;
+
     @Getter
     @Setter
     @OneToMany(mappedBy="project")
