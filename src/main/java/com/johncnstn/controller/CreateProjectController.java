@@ -2,6 +2,7 @@ package com.johncnstn.controller;
 
 import com.johncnstn.data.dto.ProjectDto;
 import com.johncnstn.data.entity.Project;
+import com.johncnstn.data.service.ManagerService;
 import com.johncnstn.data.service.ProjectService;
 import com.johncnstn.data.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,13 @@ public class CreateProjectController {
     private ProjectService projectService;
     @Autowired
     private WorkerService workerService;
+    @Autowired
+    private ManagerService managerService;
 
     @GetMapping("/createProject")
     public String getCreateProject(Model model) {
         model.addAttribute("project", new ProjectDto());
+        model.addAttribute("managerList", managerService.findAll());
         model.addAttribute("workerList", workerService.findAll());
         return "/createProject";
     }
