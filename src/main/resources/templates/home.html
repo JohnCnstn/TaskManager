@@ -12,7 +12,7 @@
             <tbody>
             <th:block th:each="project : ${projectList}">
                     <tr>
-                        <td th:text="${project.name}">1</td>
+                        <td th:text="${project.name}"></td>
                         <td>
                             <a th:href="@{/project/{id}(id=${project.id})}">More</a>
                         </td>
@@ -23,6 +23,12 @@
             </th:block>
             </tbody>
         </table>
+
+        <div class="create-project">
+
+            <a th:href="@{/createProject}"><button class="btn">Create project</button></a>
+
+        </div>
 
         <div class="starter-template">
 

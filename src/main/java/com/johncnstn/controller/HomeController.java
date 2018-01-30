@@ -17,4 +17,5 @@ public class HomeController {
         model.addAttribute("projectList", projectService.findAll());
         return "/home";
     }
+
 }

@@ -1,5 +1,6 @@
 package com.johncnstn.data.service.impl;
 
+import com.johncnstn.data.dto.ProjectDto;
 import com.johncnstn.data.entity.Project;
 import com.johncnstn.data.repository.ProjectRepository;
 import com.johncnstn.data.service.ProjectService;
@@ -29,5 +30,14 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project findOne(long id) {
         return projectRepository.findOne(id);
+    }
+
+    @Override
+    public Project createNewProject(ProjectDto projectDto) {
+        Project project = new Project();
+        project.setName(projectDto.getName());
+        project.setDescription(projectDto.getDescription());
+        project.setQuantity(projectDto.getQuantity());
+        return projectRepository.save(project);
     }
 }

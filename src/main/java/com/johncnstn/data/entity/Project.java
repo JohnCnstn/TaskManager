@@ -25,7 +25,7 @@ public class Project {
     @Column(name = "quantity")
     @Getter
     @Setter
-    private int quantity;
+    private long quantity;
 
     @Column(name = "description")
     @Getter

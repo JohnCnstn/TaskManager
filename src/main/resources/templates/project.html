@@ -9,38 +9,10 @@
 
     <div sec:authorize="hasAuthority('ROLE_WORKER')" >
 
-
-
-
-        <!--<table class="table">-->
-            <!--<tbody>-->
-
-            <!--<spring:url value="/projectInfo" var="projectInfoUrl"/>-->
-
-            <!--<tr th:each="project : ${projectList}">-->
-                <!--<td th:text="${project.name}">1</td>-->
-                <!--<td>-->
-                    <!--<a th:href="@{/projectInfo/{id}(id=${project.id})}">More</a>-->
-                <!--</td>-->
-            <!--</tr>-->
-
-            <!--</tbody>-->
-        <!--</table>-->
-
-        <!--<div class="starter-template">-->
-
-            <!--<form th:action="@{/logout}" method="post">-->
-                <!--<input type="submit" value="Logout"/>-->
-            <!--</form>-->
-
-        <!--</div>-->
-
         <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete">
 
             <button type="submit" onClick="return confirm('sure?')">Delete</button>
 
-            <!--<input type="hidden" th:field="${project}">Delete</input>-->
-            <!--<button type="submit" onClick="return confirm('sure?')"/>-->
         </form>
 
     </div>
