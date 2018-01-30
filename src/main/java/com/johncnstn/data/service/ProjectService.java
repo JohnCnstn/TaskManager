@@ -11,5 +11,5 @@ public interface ProjectService {
     List<Project> findAll();
     void delete(long id);
     Project findOne(long id);
-    Project createNewProject(ProjectDto projectDto);
+    void createNewProject(ProjectDto projectDto);
 }

@@ -46,10 +46,8 @@ public class CreateProjectController {
         }
     }
 
-    private Project createProject(ProjectDto projectDto, BindingResult result) {
-        Project project;
-        project = projectService.createNewProject(projectDto);
-        return project;
+    private void createProject(ProjectDto projectDto, BindingResult result) {
+        projectService.createNewProject(projectDto);
     }
 
 }

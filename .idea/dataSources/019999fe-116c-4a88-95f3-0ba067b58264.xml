@@ -977,195 +977,194 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="232" name="name">
+    <column id="245" parent="232" name="description">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="232" name="quantity">
+    <column id="246" parent="232" name="name">
       <Position>3</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="232" name="manager_id">
+    <column id="247" parent="232" name="quantity">
       <Position>4</Position>
       <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="232" name="worker_id">
+    <column id="248" parent="232" name="manager_id">
       <Position>5</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="232" name="description">
-      <Position>6</Position>
-      <DataType>varchar(255)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="250" parent="232" name="FKmc41im0glyrn8n6u6yfyuy38s">
+    <index id="249" parent="232" name="FKmc41im0glyrn8n6u6yfyuy38s">
       <ColNames>manager_id</ColNames>
     </index>
-    <index id="251" parent="232" name="FKsipf2oxevsc4oyui2cpcuhugt">
-      <ColNames>worker_id</ColNames>
-    </index>
-    <key id="252" parent="232" name="PRIMARY">
+    <key id="250" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="253" parent="232" name="FKmc41im0glyrn8n6u6yfyuy38s">
+    <foreign-key id="251" parent="232" name="FKmc41im0glyrn8n6u6yfyuy38s">
       <ColNames>manager_id</ColNames>
       <RefSchemaName>test</RefSchemaName>
       <RefTableName>manager</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="254" parent="232" name="FKsipf2oxevsc4oyui2cpcuhugt">
-      <ColNames>worker_id</ColNames>
-      <RefSchemaName>test</RefSchemaName>
-      <RefTableName>worker</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="255" parent="233" name="id">
+    <column id="252" parent="233" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="233" name="description">
+    <column id="253" parent="233" name="description">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="233" name="name">
+    <column id="254" parent="233" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="233" name="project_id">
+    <column id="255" parent="233" name="project_id">
       <Position>4</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="259" parent="233" name="FKk8qrwowg31kx7hp93sru1pdqa">
+    <index id="256" parent="233" name="FKk8qrwowg31kx7hp93sru1pdqa">
       <ColNames>project_id</ColNames>
     </index>
-    <key id="260" parent="233" name="PRIMARY">
+    <key id="257" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="261" parent="233" name="FKk8qrwowg31kx7hp93sru1pdqa">
+    <foreign-key id="258" parent="233" name="FKk8qrwowg31kx7hp93sru1pdqa">
       <ColNames>project_id</ColNames>
       <RefSchemaName>test</RefSchemaName>
       <RefTableName>project</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="262" parent="234" name="id">
+    <column id="259" parent="234" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="234" name="email">
+    <column id="260" parent="234" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="234" name="first_name">
+    <column id="261" parent="234" name="first_name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="234" name="last_name">
+    <column id="262" parent="234" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="234" name="password">
+    <column id="263" parent="234" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="234" name="userName">
+    <column id="264" parent="234" name="userName">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="234" name="user_profile_id">
+    <column id="265" parent="234" name="user_profile_id">
       <Position>7</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="269" parent="234" name="FKjjes1f6tjhqns02054ou51m00">
+    <index id="266" parent="234" name="FKjjes1f6tjhqns02054ou51m00">
       <ColNames>user_profile_id</ColNames>
     </index>
-    <key id="270" parent="234" name="PRIMARY">
+    <key id="267" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="271" parent="234" name="FKjjes1f6tjhqns02054ou51m00">
+    <foreign-key id="268" parent="234" name="FKjjes1f6tjhqns02054ou51m00">
       <ColNames>user_profile_id</ColNames>
       <RefSchemaName>test</RefSchemaName>
       <RefTableName>user_profile</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="272" parent="235" name="id">
+    <column id="269" parent="235" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="type">
+    <column id="270" parent="235" name="type">
       <Position>2</Position>
       <DataType>varchar(15)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="274" parent="235" name="UK_k6d5iiad3vb5isxj1munty17o">
+    <index id="271" parent="235" name="UK_k6d5iiad3vb5isxj1munty17o">
       <ColNames>type</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="275" parent="235" name="PRIMARY">
+    <key id="272" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="276" parent="235" name="UK_k6d5iiad3vb5isxj1munty17o">
+    <key id="273" parent="235" name="UK_k6d5iiad3vb5isxj1munty17o">
       <ColNames>type</ColNames>
       <UnderlyingIndexName>UK_k6d5iiad3vb5isxj1munty17o</UnderlyingIndexName>
     </key>
-    <column id="277" parent="236" name="id">
+    <column id="274" parent="236" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="236" name="worker_qualification_id">
+    <column id="275" parent="236" name="project_id">
       <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="276" parent="236" name="worker_qualification_id">
+      <Position>3</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="279" parent="236" name="FKqnfhtny8o2x08inoh1jiqsbwj">
+    <index id="277" parent="236" name="FKaljx9cf62s9g8u5bivyioukf3">
+      <ColNames>project_id</ColNames>
+    </index>
+    <index id="278" parent="236" name="FKqnfhtny8o2x08inoh1jiqsbwj">
       <ColNames>worker_qualification_id</ColNames>
     </index>
-    <key id="280" parent="236" name="PRIMARY">
+    <key id="279" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="281" parent="236" name="FKopm5ac7lr65x33baiyy2hj7oi">
+    <foreign-key id="280" parent="236" name="FKopm5ac7lr65x33baiyy2hj7oi">
       <ColNames>id</ColNames>
       <RefSchemaName>test</RefSchemaName>
       <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="281" parent="236" name="FKaljx9cf62s9g8u5bivyioukf3">
+      <ColNames>project_id</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>project</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="282" parent="236" name="FKqnfhtny8o2x08inoh1jiqsbwj">

@@ -38,7 +38,7 @@
 
         <div>
             <label>Select Worker</label>
-            <select class="form-control" th:field="*{workerId}">
+            <select class="form-control" th:field="*{workerId}" multiple="multiple">
                 <option th:each="worker : ${workerList}"
                         th:value="${worker.id}"
                         th:text="${worker.userName}"></option>

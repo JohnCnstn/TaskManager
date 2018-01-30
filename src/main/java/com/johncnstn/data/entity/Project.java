@@ -45,7 +45,6 @@ public class Project {
 
     @Getter
     @Setter
-    @ManyToOne
-    @JoinColumn(name="worker_id", nullable=false)
-    private Worker worker;
+    @OneToMany(mappedBy="project")
+    private Set<Worker> workers;
 }

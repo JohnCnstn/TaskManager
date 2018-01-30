@@ -18,6 +18,7 @@ public class Worker extends User {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy="manager")
-    private Set<Project> projects;
+    @ManyToOne
+    @JoinColumn(name="project_id")
+    private Project project;
 }
