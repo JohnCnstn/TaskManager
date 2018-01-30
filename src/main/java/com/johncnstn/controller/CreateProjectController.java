@@ -3,7 +3,7 @@ package com.johncnstn.controller;
 import com.johncnstn.data.dto.ProjectDto;
 import com.johncnstn.data.entity.Project;
 import com.johncnstn.data.service.ProjectService;
-import com.johncnstn.exception.EmailExistsException;
+import com.johncnstn.data.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +19,13 @@ public class CreateProjectController {
 
     @Autowired
     private ProjectService projectService;
+    @Autowired
+    private WorkerService workerService;
 
     @GetMapping("/createProject")
     public String getCreateProject(Model model) {
         model.addAttribute("project", new ProjectDto());
+        model.addAttribute("workerList", workerService.findAll());
         return "/createProject";
     }
 

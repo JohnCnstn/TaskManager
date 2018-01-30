@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service("userService")
 public class WorkerServiceImpl implements WorkerService {
@@ -63,6 +64,11 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
 
         return workerRepository.save(worker);
+    }
+
+    @Override
+    public List<Worker> findAll() {
+        return workerRepository.findAll();
     }
 
     private boolean emailExist(String email) {

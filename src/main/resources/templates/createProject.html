@@ -26,6 +26,16 @@
             <p th:each="error : ${#fields.errors('quantity')}"
                th:text="${error}">Validation error</p>
         </div>
+
+        <div>
+            <label>Select Worker</label>
+            <select class="form-control" id="testOrder" name="testOrder">
+                <option th:each="worker : ${workerList}"
+                        th:value="${worker.id}"
+                        th:text="${worker.userName}"></option>
+            </select>
+        </div>
+
         <button type="submit">Submit</button>
     </form>
 
