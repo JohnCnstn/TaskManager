@@ -42,7 +42,7 @@ public class CreateProjectController {
         if (result.hasErrors()) {
             return "registration";
         } else {
-            return "redirect:login.html";
+            return "redirect:/home";
         }
     }
 
