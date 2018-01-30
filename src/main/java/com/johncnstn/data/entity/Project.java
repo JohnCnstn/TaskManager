@@ -37,10 +37,14 @@ public class Project {
     @OneToMany(mappedBy="project")
     private Set<Task> tasks;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name="manager_id", nullable=false)
     private Manager manager;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name="worker_id", nullable=false)
     private Worker worker;

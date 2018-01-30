@@ -1,6 +1,7 @@
 package com.johncnstn.controller;
 
 import com.johncnstn.data.dto.ProjectDto;
+import com.johncnstn.data.entity.Manager;
 import com.johncnstn.data.entity.Project;
 import com.johncnstn.data.service.ManagerService;
 import com.johncnstn.data.service.ProjectService;

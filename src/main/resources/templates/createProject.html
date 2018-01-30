@@ -29,7 +29,7 @@
 
         <div>
             <label>Select Manager</label>
-            <select class="form-control" id="testOrder" name="testOrder">
+            <select class="form-control" th:field="*{managerId}" >
                 <option th:each="manager : ${managerList}"
                         th:value="${manager.id}"
                         th:text="${manager.userName}"></option>
@@ -38,7 +38,7 @@
 
         <div>
             <label>Select Worker</label>
-            <select class="form-control" id="testOrder" name="testOrder">
+            <select class="form-control" th:field="*{workerId}">
                 <option th:each="worker : ${workerList}"
                         th:value="${worker.id}"
                         th:text="${worker.userName}"></option>
