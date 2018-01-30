@@ -19,6 +19,11 @@ public class ProjectController {
         return "/project";
     }
 
+    @GetMapping("/updateProject/{id}")
+    public String getUpdateProject(@PathVariable(value = "id") Long id) {
+        return "/updateProject";
+    }
+
     @DeleteMapping("/project/{id}")
     public String deleteProject(@PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("project", projectService.findOne(id));
