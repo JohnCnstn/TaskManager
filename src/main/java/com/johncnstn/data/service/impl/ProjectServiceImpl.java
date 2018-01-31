@@ -75,5 +75,11 @@ public class ProjectServiceImpl implements ProjectService {
         projectToSave.setManager(managerRepository.findOne(project.getManager().getId()));
 
         projectRepository.save(projectToSave);
+
+        for (Worker worker : project.getWorkers()) {
+            Worker workerToSave = workerRepository.findOne(worker.getId());
+            workerToSave.setProject(project);
+            workerRepository.save(workerToSave);
+        }
     }
 }

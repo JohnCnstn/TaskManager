@@ -58,6 +58,30 @@ public class ProjectController {
         return "redirect:/home";
     }
 
+    @GetMapping("/createProject")
+    public String getCreateProject(Model model) {
+        model.addAttribute("project", new ProjectDto());
+        model.addAttribute("managerList", managerService.findAll());
+        model.addAttribute("workerList", workerService.findAll());
+        return "/createProject";
+    }
+
+    @PostMapping("/createProject")
+    public String postProject(@Valid @ModelAttribute("project") ProjectDto projectDto, BindingResult result) {
+        if (!result.hasErrors()) {
+            createProject(projectDto, result);
+        }
+        if (result.hasErrors()) {
+            return "registration";
+        } else {
+            return "redirect:/home";
+        }
+    }
+
+    private void createProject(ProjectDto projectDto, BindingResult result) {
+        projectService.createNewProject(projectDto);
+    }
+
     private void updateProject(Project project) {
         projectService.updateProject(project);
     }
