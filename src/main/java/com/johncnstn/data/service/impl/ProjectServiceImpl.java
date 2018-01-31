@@ -54,14 +54,14 @@ public class ProjectServiceImpl implements ProjectService {
         project.setDescription(projectDto.getDescription());
         project.setQuantity(projectDto.getQuantity());
 
-        project.setManager(managerRepository.findOne(projectDto.getManagerId()));
+        project.setManager(managerRepository.findOne(projectDto.getManager().getId()));
 
         projectRepository.save(project);
 
-        for (long id : projectDto.getWorkerId()) {
-            Worker worker = workerRepository.findOne(id);
-            worker.setProject(project);
-            workerRepository.save(worker);
+        for (Worker worker : projectDto.getWorkers()) {
+            Worker workerToSave = workerRepository.findOne(worker.getId());
+            workerToSave.setProject(project);
+            workerRepository.save(workerToSave);
         }
     }
 }

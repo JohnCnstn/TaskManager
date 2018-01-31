@@ -1,11 +1,13 @@
 package com.johncnstn.data.dto;
 
+import com.johncnstn.data.entity.Manager;
+import com.johncnstn.data.entity.Worker;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
 
 public class ProjectDto {
     @NotNull
@@ -24,14 +26,12 @@ public class ProjectDto {
     @Getter
     private long quantity;
 
-    @Setter
     @Getter
-    private long managerId;
-
     @Setter
-    @Getter
-    private List<Long> workerId;
+    private Manager manager;
 
-    
+    @Getter
+    @Setter
+    private Set<Worker> workers;
 
 }
