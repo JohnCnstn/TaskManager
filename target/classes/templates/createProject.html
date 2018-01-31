@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://java.sun.com/xml/ns/javaee">
+<head>
+</head>
+<body>
+
+<div class="container">
+
+    <form action="/createProject" th:object="${project}" method="POST" enctype="utf8">
+        <div>
+            <label >Name</label>
+            <input th:field="*{name}"/>
+            <p th:each="error: ${#fields.errors('name')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div>
+            <label >Description</label>
+            <input th:field="*{description}"/>
+            <p th:each="error: ${#fields.errors('description')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div>
+            <label >Quantity</label>
+            <input th:field="*{quantity}"/>
+            <p th:each="error : ${#fields.errors('quantity')}"
+               th:text="${error}">Validation error</p>
+        </div>
+
+        <div>
+            <label>Select Manager</label>
+            <select class="form-control" th:field="*{manager}" >
+                <option th:each="manager : ${managerList}"
+                        th:value="${manager.id}"
+                        th:text="${manager.userName}"></option>
+            </select>
+        </div>
+
+        <div>
+            <label>Select Worker</label>
+            <select class="form-control" th:field="*{workers}" multiple="multiple">
+                <option th:each="worker : ${workerList}"
+                        th:value="${worker.id}"
+                        th:text="${worker.userName}"></option>
+            </select>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a th:href="@{/home}"><button class="btn">Back</button></a>
+
+</div>
+
+</body>
+</html>

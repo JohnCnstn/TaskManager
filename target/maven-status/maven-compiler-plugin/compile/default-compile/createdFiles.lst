@@ -1,0 +1,4 @@
+com\johncnstn\config\SpringSecurityConfig.class
+com\johncnstn\error\MyAccessDeniedHandler.class
+com\johncnstn\SpringBootWebApplication.class
+com\johncnstn\controller\WelcomeController.class

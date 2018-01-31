@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://java.sun.com/xml/ns/javaee">
+<head>
+</head>
+<body>
+
+<div class="container">
+
+    <div sec:authorize="hasAuthority('ROLE_WORKER')" >
+
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <a th:href="@{/updateProject/{id}(id=${id})}"><button class="btn">Update</button></a>
+        </div>
+
+    </div>
+
+    <div sec:authorize="hasAuthority('ROLE_WORKER')" >
+
+        <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete">
+
+            <button type="submit" onClick="return confirm('sure?')">Delete</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
