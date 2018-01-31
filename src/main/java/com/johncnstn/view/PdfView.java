@@ -22,7 +22,7 @@ public class PdfView extends AbstractPdfView {
         List<User> users = (List<User>) model.get("users");
         document.add(new Paragraph("Generated Users " + LocalDate.now()));
 
-        PdfPTable table = new PdfPTable((int) users.stream().count());
+        PdfPTable table = new PdfPTable(4);
         table.setWidthPercentage(100.0f);
         table.setSpacingBefore(10);
 
@@ -36,16 +36,23 @@ public class PdfView extends AbstractPdfView {
         cell.setPadding(5);
 
         // write table header
+        cell.setPhrase(new Phrase("Username", font));
+        table.addCell(cell);
+
         cell.setPhrase(new Phrase("First Name", font));
         table.addCell(cell);
 
         cell.setPhrase(new Phrase("Last Name", font));
         table.addCell(cell);
 
+        cell.setPhrase(new Phrase("Email", font));
+        table.addCell(cell);
+
         for(User user : users){
+            table.addCell(user.getUserName());
             table.addCell(user.getFirstName());
             table.addCell(user.getLastName());
-
+            table.addCell(user.getEmail());
         }
 
         document.add(table);
