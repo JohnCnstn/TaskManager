@@ -37,10 +37,12 @@ public class ProjectController {
         return "/updateProject";
     }
 
-    @PostMapping("/updateProject")
-    public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result) {
+    @PostMapping("/updateProject/{id}")
+    public String updateProject(@Valid @ModelAttribute("project") Project project, @PathVariable(value = "id") Long id,
+                                BindingResult result) {
         if (!result.hasErrors()) {
-//            createProject(projectDto, result);
+            project.setId(id);
+            updateProject(project);
         }
         if (result.hasErrors()) {
             return "registration";
@@ -56,8 +58,8 @@ public class ProjectController {
         return "redirect:/home";
     }
 
-    private void createProject(ProjectDto projectDto, BindingResult result) {
-        projectService.createNewProject(projectDto);
+    private void updateProject(Project project) {
+        projectService.updateProject(project);
     }
 
 }

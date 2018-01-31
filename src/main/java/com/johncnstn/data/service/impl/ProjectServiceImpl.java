@@ -64,4 +64,16 @@ public class ProjectServiceImpl implements ProjectService {
             workerRepository.save(workerToSave);
         }
     }
+
+    @Override
+    public void updateProject(Project project) {
+        Project projectToSave = projectRepository.findOne(project.getId());
+        projectToSave.setName(project.getName());
+        projectToSave.setDescription(project.getDescription());
+        projectToSave.setQuantity(project.getQuantity());
+
+        projectToSave.setManager(managerRepository.findOne(project.getManager().getId()));
+
+        projectRepository.save(projectToSave);
+    }
 }
