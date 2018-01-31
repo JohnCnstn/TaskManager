@@ -17,7 +17,7 @@ public class PdfView extends AbstractPdfView {
     @Override
     protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer, HttpServletRequest request, HttpServletResponse response) throws Exception {
         // change the file name
-        response.setHeader("Content-Disposition", "attachment; filename=\"my-pdf-file.pdf\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\"all-users.pdf\"");
 
         List<User> users = (List<User>) model.get("users");
         document.add(new Paragraph("Generated Users " + LocalDate.now()));
