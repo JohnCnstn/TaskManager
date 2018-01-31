@@ -42,6 +42,4 @@ public abstract class AbstractCsvView extends AbstractView {
     protected abstract void buildCsvDocument(
             Map<String, Object> model, HttpServletRequest request, HttpServletResponse response)
             throws Exception;
-
-
 }

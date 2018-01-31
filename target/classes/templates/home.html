@@ -6,39 +6,54 @@
 
 <div class="container">
 
-    <div sec:authorize="hasAuthority('ROLE_WORKER')" >
+    <table class="table">
+        <tbody>
+        <th:block th:each="project : ${projectList}">
+            <tr>
+                <td th:text="${project.name}"></td>
+                <td>
+                    <a th:href="@{/project/{id}(id=${project.id})}">More</a>
+                </td>
+            </tr>
+            <tr>
+                <td th:text="${project.description}">1</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
 
-        <table class="table">
-            <tbody>
-            <th:block th:each="project : ${projectList}">
-                    <tr>
-                        <td th:text="${project.name}"></td>
-                        <td>
-                            <a th:href="@{/project/{id}(id=${project.id})}">More</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td th:text="${project.description}">1</td>
-                    </tr>
-            </th:block>
-            </tbody>
-        </table>
+    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
 
         <div class="create-project">
 
-            <a th:href="@{/createProject}"><button class="btn">Create project</button></a>
-
-        </div>
-
-        <div class="starter-template">
-
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Logout"/>
-            </form>
+            <a th:href="@{/createProject}">
+                <button class="btn">Create project</button>
+            </a>
 
         </div>
 
     </div>
+
+    <div class="starter-template">
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout"/>
+        </form>
+
+    </div>
+
+    <div>
+        <a th:href="@{/download.pdf}">
+            <button class="btn">Download PDF</button>
+        </a>
+        <a th:href="@{/download.xls}">
+            <button class="btn">Download Excel</button>
+        </a>
+        <a th:href="@{/download.csv}">
+            <button class="btn">Download CSV</button>
+        </a>
+    </div>
+
 
 </div>
 

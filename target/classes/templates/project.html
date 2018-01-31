@@ -7,15 +7,13 @@
 
 <div class="container">
 
-    <div sec:authorize="hasAuthority('ROLE_WORKER')" >
+    <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
 
         <div class="col-xs-6 col-sm-6 col-md-6">
-            <a th:href="@{/updateProject/{id}(id=${id})}"><button class="btn">Update</button></a>
+            <a th:href="@{/updateProject/{id}(id=${id})}">
+                <button class="btn">Update</button>
+            </a>
         </div>
-
-    </div>
-
-    <div sec:authorize="hasAuthority('ROLE_WORKER')" >
 
         <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete">
 
