@@ -20,7 +20,8 @@ public class ProjectController {
     }
 
     @GetMapping("/updateProject/{id}")
-    public String getUpdateProject(@PathVariable(value = "id") Long id) {
+    public String getUpdateProject(@PathVariable(value = "id") Long id, Model model) {
+        model.addAttribute("project", projectService.findOne(id));
         return "/updateProject";
     }
 
