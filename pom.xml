@@ -153,14 +153,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--&lt;!&ndash; Package as an executable jar/war &ndash;&gt;-->
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
 </project>
