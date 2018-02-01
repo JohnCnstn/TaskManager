@@ -7,10 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6282bfdf-6613-438e-942f-bcd5dba4978c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johncnstn/controller/ProjectController.java" afterPath="$PROJECT_DIR$/src/main/java/com/johncnstn/controller/ProjectController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/repository/TaskRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/repository/TaskRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/TaskService.java" afterPath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/TaskService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/TaskServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/TaskServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/019999fe-116c-4a88-95f3-0ba067b58264.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/019999fe-116c-4a88-95f3-0ba067b58264.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Task.java" afterPath="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Task.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.xml" afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/project.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/project.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/changelog/db.changelog-master.xml" afterPath="$PROJECT_DIR$/target/classes/changelog/db.changelog-master.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/johncnstn/data/entity/Task.class" afterPath="$PROJECT_DIR$/target/classes/com/johncnstn/data/entity/Task.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/project.html" afterPath="$PROJECT_DIR$/target/classes/templates/project.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,25 +55,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="TaskServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/TaskServiceImpl.java">
+      <file leaf-file-name="createProject.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/createProject.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#738#739#0" expanded="true" />
-                <element signature="e#785#786#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-14">
+              <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/controller/ProjectController.java">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="33" column="72" lean-forward="false" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
+            <state relative-caret-position="-20">
+              <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -89,6 +89,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>path</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -106,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/WorkerQualificationType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/WorkerQualification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/WorkerQualificationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/repository/WorkerQualificationRepository.java" />
@@ -126,15 +130,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/dto/UserDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/WorkerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Worker.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/WorkerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/controller/CreateProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/controller/RegistrationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/dto/ProjectDto.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/createProject.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/ProjectService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/updateProject.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/ProjectServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/UserServiceImpl.java" />
@@ -149,14 +150,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/view/CsvView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/view/ExcelView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/view/PdfView.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/home.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/project.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/repository/TaskRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/TaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/TaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/controller/ProjectController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Project.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/updateProject.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/createProject.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/home.html" />
       </list>
     </option>
   </component>
@@ -286,17 +291,30 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="johncnstn" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBoot" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBoot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="johncnstn" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBoot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBoot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="changelog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBoot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBoot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -525,7 +543,7 @@
       <workItem from="1517380028732" duration="8006000" />
       <workItem from="1517399858591" duration="289000" />
       <workItem from="1517431325095" duration="13337000" />
-      <workItem from="1517482317875" duration="1553000" />
+      <workItem from="1517482317875" duration="2399000" />
     </task>
     <task id="LOCAL-00001" summary="create and configure proj">
       <created>1517097394451</created>
@@ -762,11 +780,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86603000" />
+    <option name="totallyTimeSpent" value="87449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -792,6 +809,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28517723" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -799,7 +817,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -924,13 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-159">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/createProject.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1102,46 +1112,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/b0fdedad/019999fe-116c-4a88-95f3-0ba067b58264/test.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="154" column="12" lean-forward="false" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/b0fdedad/019999fe-116c-4a88-95f3-0ba067b58264/test.project">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/b0fdedad/019999fe-116c-4a88-95f3-0ba067b58264/test.manager">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="403" column="92" lean-forward="false" selection-start-line="403" selection-start-column="92" selection-end-line="403" selection-end-column="92" />
         </state>
       </provider>
     </entry>
@@ -1161,10 +1135,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/updateProject.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/repository/TaskRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="231">
+          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/TaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="33" column="72" lean-forward="false" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="143" column="45" lean-forward="false" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/b0fdedad/019999fe-116c-4a88-95f3-0ba067b58264/test.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/b0fdedad/019999fe-116c-4a88-95f3-0ba067b58264/test.project">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="396" column="37" lean-forward="false" selection-start-line="396" selection-start-column="26" selection-end-line="396" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1176,66 +1228,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="17" column="71" lean-forward="false" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+        <state relative-caret-position="336">
+          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/entity/Task.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/updateProject.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="280">
+          <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/repository/TaskRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/createProject.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-14">
+          <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/TaskService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/data/service/impl/TaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#785#786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johncnstn/controller/ProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="33" column="72" lean-forward="false" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
+        <state relative-caret-position="-20">
+          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
           <folding />
         </state>
       </provider>

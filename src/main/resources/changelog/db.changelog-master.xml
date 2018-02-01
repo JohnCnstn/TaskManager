@@ -3,23 +3,21 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <!--<include file="changelog/db.fill-tables.xml"/>-->
-
-    <changeSet author="cryst (generated)" id="1517442681074-1">
+    <changeSet author="cryst (generated)" id="1517484434209-1">
         <createTable tableName="admin">
             <column name="id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-2">
+    <changeSet author="cryst (generated)" id="1517484434209-2">
         <createTable tableName="manager">
             <column name="id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-3">
+    <changeSet author="cryst (generated)" id="1517484434209-3">
         <createTable tableName="project">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -32,19 +30,19 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-4">
+    <changeSet author="cryst (generated)" id="1517484434209-4">
         <createTable tableName="task">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="description" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
+            <column name="path" type="VARCHAR(255)"/>
             <column name="project_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-5">
+    <changeSet author="cryst (generated)" id="1517484434209-5">
         <createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -59,7 +57,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-6">
+    <changeSet author="cryst (generated)" id="1517484434209-6">
         <createTable tableName="user_profile">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -69,7 +67,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-7">
+    <changeSet author="cryst (generated)" id="1517484434209-7">
         <createTable tableName="worker">
             <column name="id" type="BIGINT">
                 <constraints nullable="false"/>
@@ -80,7 +78,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-8">
+    <changeSet author="cryst (generated)" id="1517484434209-8">
         <createTable tableName="worker_qualification">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -90,89 +88,89 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-9">
+    <changeSet author="cryst (generated)" id="1517484434209-9">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="admin"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-10">
+    <changeSet author="cryst (generated)" id="1517484434209-10">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="manager"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-11">
+    <changeSet author="cryst (generated)" id="1517484434209-11">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="worker"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-12">
+    <changeSet author="cryst (generated)" id="1517484434209-12">
         <addUniqueConstraint columnNames="type" constraintName="UK_k6d5iiad3vb5isxj1munty17o" tableName="user_profile"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-13">
+    <changeSet author="cryst (generated)" id="1517484434209-13">
         <addUniqueConstraint columnNames="type" constraintName="UK_logow1allwjoi3xv8k37u7895"
                              tableName="worker_qualification"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-14">
+    <changeSet author="cryst (generated)" id="1517484434209-14">
         <createIndex indexName="FKaljx9cf62s9g8u5bivyioukf3" tableName="worker">
             <column name="project_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-15">
+    <changeSet author="cryst (generated)" id="1517484434209-15">
         <createIndex indexName="FKjjes1f6tjhqns02054ou51m00" tableName="user">
             <column name="user_profile_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-16">
+    <changeSet author="cryst (generated)" id="1517484434209-16">
         <createIndex indexName="FKk8qrwowg31kx7hp93sru1pdqa" tableName="task">
             <column name="project_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-17">
+    <changeSet author="cryst (generated)" id="1517484434209-17">
         <createIndex indexName="FKmc41im0glyrn8n6u6yfyuy38s" tableName="project">
             <column name="manager_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-18">
+    <changeSet author="cryst (generated)" id="1517484434209-18">
         <createIndex indexName="FKqnfhtny8o2x08inoh1jiqsbwj" tableName="worker">
             <column name="worker_qualification_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-19">
+    <changeSet author="cryst (generated)" id="1517484434209-19">
         <addForeignKeyConstraint baseColumnNames="id" baseTableName="admin" constraintName="FK1ja8rua032fgnk9jmq7du3b3a"
                                  deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="user"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-20">
+    <changeSet author="cryst (generated)" id="1517484434209-20">
         <addForeignKeyConstraint baseColumnNames="id" baseTableName="manager"
                                  constraintName="FK31laakchgoo3qohp4cqgcgada" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="user"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-21">
+    <changeSet author="cryst (generated)" id="1517484434209-21">
         <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="worker"
                                  constraintName="FKaljx9cf62s9g8u5bivyioukf3" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="project"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-22">
+    <changeSet author="cryst (generated)" id="1517484434209-22">
         <addForeignKeyConstraint baseColumnNames="user_profile_id" baseTableName="user"
                                  constraintName="FKjjes1f6tjhqns02054ou51m00" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="user_profile"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-23">
+    <changeSet author="cryst (generated)" id="1517484434209-23">
         <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="task"
                                  constraintName="FKk8qrwowg31kx7hp93sru1pdqa" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="project"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-24">
+    <changeSet author="cryst (generated)" id="1517484434209-24">
         <addForeignKeyConstraint baseColumnNames="manager_id" baseTableName="project"
                                  constraintName="FKmc41im0glyrn8n6u6yfyuy38s" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="manager"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-25">
+    <changeSet author="cryst (generated)" id="1517484434209-25">
         <addForeignKeyConstraint baseColumnNames="id" baseTableName="worker"
                                  constraintName="FKopm5ac7lr65x33baiyy2hj7oi" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="user"/>
     </changeSet>
-    <changeSet author="cryst (generated)" id="1517442681074-26">
+    <changeSet author="cryst (generated)" id="1517484434209-26">
         <addForeignKeyConstraint baseColumnNames="worker_qualification_id" baseTableName="worker"
                                  constraintName="FKqnfhtny8o2x08inoh1jiqsbwj" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
@@ -380,7 +378,9 @@
         <insert tableName="project">
             <column name="name">Goggle</column>
             <column name="quantity">3</column>
-            <column name="description">Эксклюзивный проект Wi-Fi с авторизацией пользователей для крупного мобильного оператора.</column>
+            <column name="description">Эксклюзивный проект Wi-Fi с авторизацией пользователей для крупного мобильного
+                оператора.
+            </column>
             <column name="manager_id">3</column>
         </insert>
 
@@ -403,6 +403,12 @@
             <column name="quantity">6</column>
             <column name="description">Разработка интернет-сайта для компании «Дональд и Дак».</column>
             <column name="manager_id">5</column>
+        </insert>
+
+        <insert tableName="task">
+            <column name="name">Integration</column>
+            <column name="path">/all-users.pdf</column>
+            <column name="project_id">1</column>
         </insert>
 
     </changeSet>

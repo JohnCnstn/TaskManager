@@ -20,10 +20,10 @@ public class Task {
     @Setter
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "path")
     @Getter
     @Setter
-    private String description;
+    private String path;
 
     @ManyToOne
     @JoinColumn(name="project_id", nullable=false)

@@ -14,7 +14,7 @@
             <th:block th:each="task : ${taskList}">
                 <tr>
                     <td>
-                        <a th:href="${task.description}">
+                        <a th:href="${task.path}">
                             <button class="btn" th:text="${task.name}"></button>
                         </a>
                     </td>
