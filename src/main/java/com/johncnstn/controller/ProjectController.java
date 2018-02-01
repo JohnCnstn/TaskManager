@@ -4,6 +4,7 @@ import com.johncnstn.data.dto.ProjectDto;
 import com.johncnstn.data.entity.Project;
 import com.johncnstn.data.service.ManagerService;
 import com.johncnstn.data.service.ProjectService;
+import com.johncnstn.data.service.TaskService;
 import com.johncnstn.data.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,14 +19,19 @@ public class ProjectController {
 
     @Autowired
     private WorkerService workerService;
+
     @Autowired
     private ManagerService managerService;
 
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private TaskService taskService;
+
     @GetMapping("/project/{id}")
-    public String getProject(@PathVariable(value = "id") Long id) {
+    public String getProject(@PathVariable(value = "id") Long id, Model model) {
+        model.addAttribute("taskList", taskService.findAll());
         return "/project";
     }
 

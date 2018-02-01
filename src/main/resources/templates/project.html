@@ -9,25 +9,33 @@
 
     <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
 
-        <div class="col-xs-6 col-sm-6 col-md-6">
-            <a href="/all-users.pdf">
-                <button class="btn">View task</button>
-            </a>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-md-6">
-            <a th:href="@{/updateProject/{id}(id=${id})}">
-                <button class="btn">Update</button>
-            </a>
-        </div>
-
-        <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete">
-
-            <button type="submit" onClick="return confirm('sure?')">Delete</button>
-
-        </form>
+        <table class="table">
+            <tbody>
+            <th:block th:each="task : ${taskList}">
+                <tr>
+                    <td>
+                        <a th:href="${task.description}">
+                            <button class="btn" th:text="${task.name}"></button>
+                        </a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
 
     </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <a th:href="@{/updateProject/{id}(id=${id})}">
+            <button class="btn">Update</button>
+        </a>
+    </div>
+
+    <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete">
+
+        <button type="submit" onClick="return confirm('sure?')">Delete</button>
+
+    </form>
 
 </div>
 
