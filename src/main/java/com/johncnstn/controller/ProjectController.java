@@ -31,7 +31,7 @@ public class ProjectController {
 
     @GetMapping("/project/{id}")
     public String getProject(@PathVariable(value = "id") Long id, Model model) {
-        model.addAttribute("taskList", taskService.findAll());
+        model.addAttribute("taskList", taskService.findAllByProjectId(id));
         return "/project";
     }
 
