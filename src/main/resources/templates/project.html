@@ -10,6 +10,12 @@
     <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
 
         <div class="col-xs-6 col-sm-6 col-md-6">
+            <a href="/all-users.pdf">
+                <button class="btn">View task</button>
+            </a>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6">
             <a th:href="@{/updateProject/{id}(id=${id})}">
                 <button class="btn">Update</button>
             </a>
