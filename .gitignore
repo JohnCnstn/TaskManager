@@ -1,0 +1,5 @@
+.idea
+src/main/webapp/
+target
+out
+pom.xml
