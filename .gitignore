@@ -2,5 +2,5 @@
 src/main/webapp/
 target
 out
-pom.xml
 SpringBoot.iml
+spring-boot-web-thymeleaf.iml
