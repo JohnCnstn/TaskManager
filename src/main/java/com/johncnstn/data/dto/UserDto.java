@@ -1,11 +1,14 @@
 package com.johncnstn.data.dto;
 
+import com.johncnstn.validation.PasswordMatches;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
+@PasswordMatches
 public class UserDto {
 
     @NotNull
@@ -38,6 +41,7 @@ public class UserDto {
 
     @NotNull
     @NotEmpty
+    @Email
     @Setter
     @Getter
     private String email;

@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
       xmlns:spring="http://java.sun.com/xml/ns/javaee">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>Project</title>
 </head>
 <body>
 
@@ -10,12 +12,19 @@
     <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
 
         <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Task name</th>
+                    <th scope="col">More</th>
+                </tr>
+            </thead>
             <tbody>
             <th:block th:each="task : ${taskList}">
                 <tr>
+                    <td th:text="${task.name}"></td>
                     <td>
                         <a th:href="${task.path}">
-                            <button class="btn" th:text="${task.name}"></button>
+                            <button class="btn">More</button>
                         </a>
                     </td>
                 </tr>
@@ -26,16 +35,16 @@
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6">
+        <h3>Project actions</h3>
         <a th:href="@{/updateProject/{id}(id=${id})}">
             <button class="btn">Update</button>
         </a>
+        <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete" style="margin-top: 3%">
+            <button type="submit" class="btn" onClick="return confirm('Delete this project?')">Delete</button>
+        </form>
     </div>
 
-    <form th:action="@{/project/{id}(id=${id})}" th:object="${project}" th:method="delete">
 
-        <button type="submit" onClick="return confirm('sure?')">Delete</button>
-
-    </form>
 
 </div>
 
