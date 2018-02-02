@@ -35,7 +35,6 @@ public class RegistrationController {
         }
 
         if (result.hasErrors()) {
-//            result.rejectValue("error", "Invalid username or password!");
             return "registration";
         } else {
             return "redirect:/login";
