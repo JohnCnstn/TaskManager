@@ -1,22 +1,29 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/main.css" th:href="@{static/main.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>Spring Security Example </title>
 </head>
 <body>
 
-<div class="container">
-
+<div class="container" style="margin-top: 5%">
     <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Project Name</th>
+                <th scope="col">Project Description</th>
+                <th scope="col">More</th>
+            </tr>
+        </thead>
         <tbody>
         <th:block th:each="project : ${projectList}">
             <tr>
                 <td th:text="${project.name}"></td>
+                <td th:text="${project.description}"></td>
                 <td>
                     <a th:href="@{/project/{id}(id=${project.id})}">More</a>
                 </td>
-            </tr>
-            <tr>
-                <td th:text="${project.description}">1</td>
             </tr>
         </th:block>
         </tbody>
@@ -24,37 +31,33 @@
 
     <div sec:authorize="hasAuthority('ROLE_ADMIN')">
 
-        <div class="create-project">
+        <div class="project-operations">
 
-            <a th:href="@{/createProject}">
+            <a th:href="@{/createProject}"  style="margin-right: 30%">
                 <button class="btn">Create project</button>
             </a>
 
-        </div>
 
+            <label style="margin-right: 1%">Download data about projects</label>
+            <a th:href="@{/download.pdf}">
+                <button class="btn">Download PDF</button>
+            </a>
+            <a th:href="@{/download.xls}">
+                <button class="btn">Download Excel</button>
+            </a>
+            <a th:href="@{/download.csv}">
+                <button class="btn">Download CSV</button>
+            </a>
+        </div>
     </div>
 
-    <div class="starter-template">
+    <div class="starter-template" style="margin-top: 2%">
 
         <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Logout"/>
+            <input type="submit" class="btn" value="Logout"/>
         </form>
 
     </div>
-
-    <div>
-        <label>Download data about projects</label>
-        <a th:href="@{/download.pdf}">
-            <button class="btn">Download PDF</button>
-        </a>
-        <a th:href="@{/download.xls}">
-            <button class="btn">Download Excel</button>
-        </a>
-        <a th:href="@{/download.csv}">
-            <button class="btn">Download CSV</button>
-        </a>
-    </div>
-
 
 </div>
 
