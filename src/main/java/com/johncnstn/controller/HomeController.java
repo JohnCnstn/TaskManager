@@ -18,4 +18,9 @@ public class HomeController {
         return "/home";
     }
 
+    @GetMapping("/reactPage")
+    public String reactPage() {
+        return "/react/reactPage";
+    }
+
 }
