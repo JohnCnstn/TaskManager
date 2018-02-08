@@ -1,11 +1,14 @@
 package com.johncnstn.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "project")
 public class Project {
@@ -34,17 +37,20 @@ public class Project {
 
     @Getter
     @Setter
+    @JsonIgnore
     @OneToMany(mappedBy="project")
     private Set<Task> tasks;
 
     @Getter
     @Setter
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="manager_id", nullable=false)
     private Manager manager;
 
     @Getter
     @Setter
+    @JsonIgnore
     @OneToMany(mappedBy="project")
     private Set<Worker> workers;
 }

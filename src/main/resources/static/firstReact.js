@@ -21,9 +21,9 @@ var EmployeeTable = React.createClass({
                 <table className="table table-striped">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Years</th>
+                        <th>UserName</th>
+                        <th>FirstName</th>
+                        <th>SecondName</th>
                     </tr>
                     </thead>
                     <tbody>{rows}</tbody>
@@ -32,13 +32,28 @@ var EmployeeTable = React.createClass({
     }
 });
 
-var EMPLOYEES = [
-    {name: 'Joe Biden', age: 45, years: 5},
-    {name: 'President Obama', age: 54, years: 8},
-    {name: 'Crystal Mac', age: 34, years: 12},
-    {name: 'James Henry', age: 33, years: 2}
-];
+var App = React.createClass({
 
-ReactDOM.render(
-    <EmployeeTable employees={EMPLOYEES}/>, document.getElementById('root')
-);
+    loadEmployeesFromServer: function () {
+        var self = this;
+        $.ajax({
+            url: "http://localhost:8080/employees"
+        }).then(function (data) {
+            self.setState({employees: data._embedded.employees});
+        });
+    },
+
+    getInitialState: function () {
+        return {employees: []};
+    },
+
+    componentDidMount: function () {
+        this.loadEmployeesFromServer();
+    },
+
+    render() {
+        return (<EmployeeTable employees={this.state.employees}/>);
+    }
+});
+
+ReactDOM.render(<App />, document.getElementById('root') );
