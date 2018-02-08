@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>React + Spring</title>
 </head>
@@ -10,22 +10,9 @@
 <script src="https://fb.me/react-dom-15.0.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 
-<script type="text/babel">
-    var Employee = React.createClass({
-        render: function () {
-            return (<div>employee</div>);
-        }
-    });
-    var EmployeeTable = React.createClass({
-        render: function () {
-            return (<div>employee table</div>);
-        }
-    });
+<script type="text/babel" th:src="@{firstReact.js}"></script>
 
-    ReactDOM.render(
-        <EmployeeTable/>, document.getElementById('root')
-    );
-</script>
+<!--<script type="text/babel" src="/static/js/firstReact.js"></script>-->
 
 </body>
 </html>
