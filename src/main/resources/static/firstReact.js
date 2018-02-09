@@ -1,59 +1,57 @@
-var Employee = React.createClass({
-    render: function () {
+var Project = React.createClass({
+    render: function() {
         return (
             <tr>
-                <td>{this.props.employee.name}</td>
-                <td>{this.props.employee.age}</td>
-                <td>{this.props.employee.years}</td>
+                <td>{this.props.project.name}</td>
+                <td>{this.props.project.quantity}</td>
+                <td>{this.props.project.description}</td>
             </tr>);
     }
 });
 
-var EmployeeTable = React.createClass({
-
-    render: function () {
+var ProjectTable = React.createClass({
+    render: function() {
         var rows = [];
-        this.props.employees.forEach(function (employee) {
-            rows.push(<Employee employee={employee}/>);
+        this.props.projects.forEach(function(project) {
+            rows.push(<Project project={project} />);
         });
         return (
-            <div className="container">
-                <table className="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>UserName</th>
-                        <th>FirstName</th>
-                        <th>SecondName</th>
-                    </tr>
-                    </thead>
-                    <tbody>{rows}</tbody>
-                </table>
-            </div>);
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th><th>Quantity</th><th>Description</th>
+                </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+            </table>);
     }
 });
 
 var App = React.createClass({
 
-    loadEmployeesFromServer: function () {
+    loadProjectsFromServer: function () {
         var self = this;
         $.ajax({
-            url: "http://localhost:8080/employees"
+            url: "http://localhost:8080/api/projects"
         }).then(function (data) {
-            self.setState({employees: data._embedded.employees});
+            self.setState({projects: data._embedded.projects});
         });
     },
 
     getInitialState: function () {
-        return {employees: []};
+        return {projects: []};
     },
 
     componentDidMount: function () {
-        this.loadEmployeesFromServer();
+        this.loadProjectsFromServer();
     },
 
     render() {
-        return (<EmployeeTable employees={this.state.employees}/>);
+        return ( <ProjectTable projects={this.state.projects}/> );
     }
 });
 
+
+
 ReactDOM.render(<App />, document.getElementById('root') );
+

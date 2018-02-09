@@ -17,10 +17,9 @@ public class HomeController {
         model.addAttribute("projectList", projectService.findAll());
         return "/home";
     }
-
-    @GetMapping("/reactPage")
-    public String reactPage() {
-        return "/react/reactPage";
-    }
+//    @GetMapping("/")
+//    public String home() {
+//        return "/index";
+//    }
 
 }
