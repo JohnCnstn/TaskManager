@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://java.sun.com/xml/ns/javaee">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>Update Project</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Task Manager</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+    <form th:action="@{/updateProject/{id}(id=${id})}" th:object="${project}" method="POST" enctype="utf8" style="margin-bottom: 2%">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Manager</th>
+                <th scope="col">Worker</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input th:field="*{name}"/>
+                    <p th:each="error: ${#fields.errors('name')}"
+                       th:text="${error}">Validation error</p>
+                </td>
+                <td>
+                    <input th:field="*{description}"/>
+                    <p th:each="error: ${#fields.errors('description')}"
+                       th:text="${error}">Validation error</p>
+                </td>
+                <td>
+                    <input th:field="*{quantity}"/>
+                    <p th:each="error : ${#fields.errors('quantity')}"
+                       th:text="${error}">Validation error</p>
+                </td>
+
+                <td>
+                    <select class="form-control" th:field="*{manager}" >
+                        <option th:each="manager : ${managerList}"
+                                th:value="${manager.id}"
+                                th:text="${manager.userName}"></option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control" th:field="*{workers}" multiple="multiple">
+                        <option th:each="worker : ${workerList}"
+                                th:value="${worker.id}"
+                                th:text="${worker.userName}"></option>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <a th:href="@{/home}"><button class="btn">Back</button></a>
+
+</div>
+
+</body>
+</html>

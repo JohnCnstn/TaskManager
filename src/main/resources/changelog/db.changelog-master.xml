@@ -1,0 +1,416 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="cryst (generated)" id="1517484434209-1">
+        <createTable tableName="admin">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-2">
+        <createTable tableName="manager">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-3">
+        <createTable tableName="project">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="quantity" type="BIGINT"/>
+            <column name="manager_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-4">
+        <createTable tableName="task">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="path" type="VARCHAR(255)"/>
+            <column name="project_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-5">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="userName" type="VARCHAR(255)"/>
+            <column name="user_profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-6">
+        <createTable tableName="user_profile">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-7">
+        <createTable tableName="worker">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="BIGINT"/>
+            <column name="worker_qualification_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-8">
+        <createTable tableName="worker_qualification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-9">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="admin"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-10">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="manager"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-11">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="worker"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-12">
+        <addUniqueConstraint columnNames="type" constraintName="UK_k6d5iiad3vb5isxj1munty17o" tableName="user_profile"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-13">
+        <addUniqueConstraint columnNames="type" constraintName="UK_logow1allwjoi3xv8k37u7895"
+                             tableName="worker_qualification"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-14">
+        <createIndex indexName="FKaljx9cf62s9g8u5bivyioukf3" tableName="worker">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-15">
+        <createIndex indexName="FKjjes1f6tjhqns02054ou51m00" tableName="user">
+            <column name="user_profile_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-16">
+        <createIndex indexName="FKk8qrwowg31kx7hp93sru1pdqa" tableName="task">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-17">
+        <createIndex indexName="FKmc41im0glyrn8n6u6yfyuy38s" tableName="project">
+            <column name="manager_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-18">
+        <createIndex indexName="FKqnfhtny8o2x08inoh1jiqsbwj" tableName="worker">
+            <column name="worker_qualification_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-19">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="admin" constraintName="FK1ja8rua032fgnk9jmq7du3b3a"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-20">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="manager"
+                                 constraintName="FK31laakchgoo3qohp4cqgcgada" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-21">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="worker"
+                                 constraintName="FKaljx9cf62s9g8u5bivyioukf3" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="project"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-22">
+        <addForeignKeyConstraint baseColumnNames="user_profile_id" baseTableName="user"
+                                 constraintName="FKjjes1f6tjhqns02054ou51m00" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="user_profile"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-23">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="task"
+                                 constraintName="FKk8qrwowg31kx7hp93sru1pdqa" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="project"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-24">
+        <addForeignKeyConstraint baseColumnNames="manager_id" baseTableName="project"
+                                 constraintName="FKmc41im0glyrn8n6u6yfyuy38s" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="manager"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-25">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="worker"
+                                 constraintName="FKopm5ac7lr65x33baiyy2hj7oi" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="cryst (generated)" id="1517484434209-26">
+        <addForeignKeyConstraint baseColumnNames="worker_qualification_id" baseTableName="worker"
+                                 constraintName="FKqnfhtny8o2x08inoh1jiqsbwj" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="worker_qualification"/>
+    </changeSet>
+
+    <changeSet id="first-change-1" author="Fedog">
+        <insert tableName="user_profile">
+            <column name="type">ADMIN</column>
+        </insert>
+        <insert tableName="user_profile">
+            <column name="type">MANAGER</column>
+        </insert>
+        <insert tableName="user_profile">
+            <column name="type">WORKER</column>
+        </insert>
+
+        <insert tableName="worker_qualification">
+            <column name="type">JUNIOR</column>
+        </insert>
+        <insert tableName="worker_qualification">
+            <column name="type">MIDDLE</column>
+        </insert>
+        <insert tableName="worker_qualification">
+            <column name="type">SENIOR</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">JohnCnstn</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Pavel</column>
+            <column name="last_name">Khankevich</column>
+            <column name="email">faster@mail.ru</column>
+            <column name="user_profile_id">1</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Sirioga</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Sergey</column>
+            <column name="last_name">Ivanov</column>
+            <column name="email">sirioga@mail.ru</column>
+            <column name="user_profile_id">2</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Starosta</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Misha</column>
+            <column name="last_name">Tsvetinskiy</column>
+            <column name="email">starosta@mail.ru</column>
+            <column name="user_profile_id">2</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Vikusa</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Viktoria</column>
+            <column name="last_name">Tsvirko</column>
+            <column name="email">vikusa@mail.ru</column>
+            <column name="user_profile_id">2</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Capability</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Tamara</column>
+            <column name="last_name">Shautsova</column>
+            <column name="email">capability@mail.ru</column>
+            <column name="user_profile_id">2</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Lizzka</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Elizaveta</column>
+            <column name="last_name">Tsiulya</column>
+            <column name="email">lizzka@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Kochka</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Nikita</column>
+            <column name="last_name">Romanchuk</column>
+            <column name="email">kochka@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Akula</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Vladimir</column>
+            <column name="last_name">Akulchik</column>
+            <column name="email">akula@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Melok</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Maria</column>
+            <column name="last_name">Melnik</column>
+            <column name="email">melok@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Artiom321</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Artyom</column>
+            <column name="last_name">Kirutin</column>
+            <column name="email">artiom321@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Fedog</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Bogdan</column>
+            <column name="last_name">Fedorenko</column>
+            <column name="email">fedoj@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Jenice</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Dmitriy</column>
+            <column name="last_name">Umetskiy</column>
+            <column name="email">jenice@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="userName">Johny</column>
+            <column name="password">$2a$04$ADRM8hhfgklHPSU2t6hz2OH/fguRqs3AmsYtoJkf7xbASVyei0IE2</column>
+            <column name="first_name">Ekaterina</column>
+            <column name="last_name">Kriger</column>
+            <column name="email">johny@mail.ru</column>
+            <column name="user_profile_id">3</column>
+        </insert>
+
+        <insert tableName="admin">
+            <column name="id">1</column>
+        </insert>
+
+        <insert tableName="manager">
+            <column name="id">2</column>
+        </insert>
+
+        <insert tableName="manager">
+            <column name="id">3</column>
+        </insert>
+
+        <insert tableName="manager">
+            <column name="id">4</column>
+        </insert>
+
+        <insert tableName="manager">
+            <column name="id">5</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">6</column>
+            <column name="worker_qualification_id">1</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">7</column>
+            <column name="worker_qualification_id">1</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">8</column>
+            <column name="worker_qualification_id">1</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">9</column>
+            <column name="worker_qualification_id">1</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">10</column>
+            <column name="worker_qualification_id">1</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">11</column>
+            <column name="worker_qualification_id">3</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">12</column>
+            <column name="worker_qualification_id">2</column>
+        </insert>
+
+        <insert tableName="worker">
+            <column name="id">13</column>
+            <column name="worker_qualification_id">2</column>
+        </insert>
+
+        <insert tableName="project">
+            <column name="name">Goggle</column>
+            <column name="quantity">3</column>
+            <column name="description">Эксклюзивный проект Wi-Fi с авторизацией пользователей для крупного мобильного
+                оператора.
+            </column>
+            <column name="manager_id">3</column>
+        </insert>
+
+        <insert tableName="project">
+            <column name="name">Nitronzition</column>
+            <column name="quantity">5</column>
+            <column name="description">Запуск презентационного сайта компании «Инсталия».</column>
+            <column name="manager_id">4</column>
+        </insert>
+
+        <insert tableName="project">
+            <column name="name">Pear</column>
+            <column name="quantity">2</column>
+            <column name="description">Перевод ИТ-инфраструктуры клиента на современную гибридную схему.</column>
+            <column name="manager_id">2</column>
+        </insert>
+
+        <insert tableName="project">
+            <column name="name">Quack-Quack</column>
+            <column name="quantity">6</column>
+            <column name="description">Разработка интернет-сайта для компании «Дональд и Дак».</column>
+            <column name="manager_id">5</column>
+        </insert>
+
+        <insert tableName="task">
+            <column name="name">Integration</column>
+            <column name="path">/all-users.pdf</column>
+            <column name="project_id">1</column>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
