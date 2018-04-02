@@ -36,7 +36,7 @@ class TaskList extends React.Component<{}, any> {
 
         return (
             <div>
-                <h2>Project List</h2>
+                <h2>Task List</h2>
                 {tasks.map((task: Task) =>
                     <div key={task.id}>
                         {task.name}:
