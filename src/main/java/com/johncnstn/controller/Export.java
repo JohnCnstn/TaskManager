@@ -5,6 +5,7 @@ import com.johncnstn.view.CsvView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,6 +23,7 @@ public class Export {
     private UserService userService;
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:3000")
     public String download(Model model) {
         model.addAttribute("users", userService.findAll());
         return "";

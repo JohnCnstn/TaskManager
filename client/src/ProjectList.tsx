@@ -27,7 +27,9 @@ class ProjectList extends React.Component<{}, any> {
             .then(response => response.json())
             .then(data => this.setState({projects: data, isLoading: false}));
     }
-
+    downloadXLS() {
+        fetch('http://localhost:8080/download.xls').then();
+    }
     render() {
         const {projects, isLoading} = this.state;
 
@@ -42,6 +44,7 @@ class ProjectList extends React.Component<{}, any> {
                     <div key={project.id}>
                         {project.name}:
                         {project.description}
+                        <button onClick={this.downloadXLS}>Info</button>
                     </div>
                 )}
             </div>
