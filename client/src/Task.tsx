@@ -1,5 +1,11 @@
 import * as React from 'react';
 
+class NewTask {
+    id: number;
+    name: string;
+    path: string;
+}
+
 interface TaskDto {
     id: number;
     projectId: number;
@@ -28,10 +34,15 @@ class Task extends React.Component<TaskProps, any> {
             .then(response => response.json())
             .then(data => this.setState({tasks: data, isLoading: false}));
     }
-    newTask(text: number) {
-        alert(text);
+    newTask(text: string) {
         let arr = this.state.tasks;
-        // arr.push(task);
+        let lastTask = arr[ arr.length - 1 ];
+        let newTask = new NewTask();
+        newTask.id = lastTask.id + 1;
+        newTask.name = text;
+        newTask.path = text;
+
+        arr.push(newTask);
         this.setState({tasks: arr});
     }
     removeTask(id: number) {
@@ -51,7 +62,7 @@ class Task extends React.Component<TaskProps, any> {
             <div>
                 <h2>Tasks</h2>
 
-                <button onClick={this.newTask.bind(null, 'asdads')}>add</button>
+                <button onClick={this.newTask.bind(this, 'custom data')}>add</button>
 
                 {tasks.map((task: TaskDto) =>
                     <div key={task.id}>
