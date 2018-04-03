@@ -4,9 +4,7 @@ import com.johncnstn.data.entity.Task;
 import com.johncnstn.data.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +15,13 @@ public class TaskController {
 
     @GetMapping("/tasks")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<Task>> projects() {
+    public ResponseEntity<List<Task>> getTasks() {
         return ResponseEntity.ok(taskService.findAll());
+    }
+
+    @GetMapping("/tasks/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<List<Task>> getTasksByProjectId(@PathVariable("id") long id) {
+        return ResponseEntity.ok(taskService.findAllByProjectId(id));
     }
 }

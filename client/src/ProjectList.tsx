@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Task from './Task';
 
 interface Project {
     id: number;
@@ -6,13 +8,9 @@ interface Project {
     description: string;
 }
 
-interface ProjectListProps {
-
-}
-
 class ProjectList extends React.Component<{}, any> {
-    constructor(props: ProjectListProps) {
-        super(props);
+    constructor() {
+        super({});
 
         this.state = {
             projects: [],
@@ -27,9 +25,7 @@ class ProjectList extends React.Component<{}, any> {
             .then(response => response.json())
             .then(data => this.setState({projects: data, isLoading: false}));
     }
-    downloadXLS() {
-        fetch('http://localhost:8080/download.xls').then();
-    }
+
     render() {
         const {projects, isLoading} = this.state;
 
@@ -38,16 +34,25 @@ class ProjectList extends React.Component<{}, any> {
         }
 
         return (
-            <div>
-                <h2>Project List</h2>
-                {projects.map((project: Project) =>
-                    <div key={project.id}>
-                        {project.name}:
-                        {project.description}
-                        <button onClick={this.downloadXLS}>Info</button>
-                    </div>
-                )}
-            </div>
+            <Router>
+                <div>
+                    <h2>Project List</h2>
+                    {projects.map((project: Project) =>
+                        <div key={project.id}>
+                            {project.name}:
+                            {project.description}
+
+                            <Link to={'/tasks/' + project.id}>Task</Link>
+
+                            <Switch>
+                                <Route path={'/tasks/' + project.id} render={() => <Task id={project.id}/>}/>
+                                {/*<Route path={'/tasks/' + project.id} component={Task} children={project.id}/>*/}
+                            </Switch>
+
+                        </div>
+                    )}
+                </div>
+            </Router>
         );
     }
 }
