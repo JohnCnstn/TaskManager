@@ -19,7 +19,6 @@ class TaskList extends React.Component<{}, any> {
             isLoading: false
         };
     }
-
     componentDidMount() {
         this.setState({isLoading: true});
 
@@ -37,6 +36,7 @@ class TaskList extends React.Component<{}, any> {
         return (
             <div>
                 <h2>Task List</h2>
+
                 {tasks.map((task: Task) =>
                     <div key={task.id}>
                         {task.name}:

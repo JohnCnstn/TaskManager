@@ -14,8 +14,6 @@ class Task extends React.Component<TaskProps, any> {
     constructor(props: TaskProps) {
         super(props);
 
-        this.removeTask = this.removeTask.bind(this);
-
         this.state = {
             tasks: [],
             isLoading: false
@@ -30,10 +28,15 @@ class Task extends React.Component<TaskProps, any> {
             .then(response => response.json())
             .then(data => this.setState({tasks: data, isLoading: false}));
     }
-
-    removeTask() {
+    newTask(text: number) {
+        alert(text);
         let arr = this.state.tasks;
-        arr.splice(0, 1);
+        // arr.push(task);
+        this.setState({tasks: arr});
+    }
+    removeTask(id: number) {
+        let arr = this.state.tasks;
+        arr.splice(id - 1, 1);
         this.setState({tasks: arr});
     }
     render() {
@@ -47,12 +50,15 @@ class Task extends React.Component<TaskProps, any> {
         return (
             <div>
                 <h2>Tasks</h2>
+
+                <button onClick={this.newTask.bind(null, 'asdads')}>add</button>
+
                 {tasks.map((task: TaskDto) =>
                     <div key={task.id}>
                         {task.id}:
                         {task.name}:
                         {task.path}
-                        <button onClick={this.removeTask}>remove</button>
+                        <button onClick={this.removeTask.bind(this, task.id)}>remove</button>
                     </div>
                 )}
             </div>
