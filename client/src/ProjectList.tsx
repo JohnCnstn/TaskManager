@@ -46,7 +46,6 @@ class ProjectList extends React.Component<{}, any> {
 
                             <Switch>
                                 <Route path={'/tasks/' + project.id} render={() => <Task id={project.id}/>}/>
-                                {/*<Route path={'/tasks/' + project.id} component={Task} children={project.id}/>*/}
                             </Switch>
 
                         </div>
