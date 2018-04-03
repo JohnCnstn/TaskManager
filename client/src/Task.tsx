@@ -36,18 +36,26 @@ class Task extends React.Component<TaskProps, any> {
     }
     newTask(text: string) {
         let arr = this.state.tasks;
-        let lastTask = arr[ arr.length - 1 ];
         let newTask = new NewTask();
-        newTask.id = lastTask.id + 1;
+        if (arr.length === 0) {
+            newTask.id = 0;
+        } else {
+            let lastTask = arr[arr.length - 1];
+            newTask.id = lastTask.id + 1;
+        }
         newTask.name = text;
         newTask.path = text;
-
         arr.push(newTask);
         this.setState({tasks: arr});
     }
     removeTask(id: number) {
         let arr = this.state.tasks;
-        arr.splice(id - 1, 1);
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].id === id) {
+                arr.splice(i, 1);
+            }
+        }
         this.setState({tasks: arr});
     }
     render() {
