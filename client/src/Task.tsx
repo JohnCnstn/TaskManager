@@ -12,6 +12,7 @@ interface TaskDto {
     name: string;
     path: string;
 }
+
 interface TaskProps {
     projectId: number;
 }
@@ -39,6 +40,21 @@ class Task extends React.Component<TaskProps, any> {
             .then(data => this.setState({tasks: data, isLoading: false}));
     }
 
+    downloadCsv() {
+        setTimeout(() => {
+            const response = {file: 'http://localhost:8080/downloadCSV'}; window.open(response.file); }, 100);
+    }
+
+    downloadXls() {
+        setTimeout(() => {
+            const response = {file: 'http://localhost:8080/download.xls'}; window.open(response.file); }, 100);
+    }
+
+    downloadPdf() {
+        setTimeout(() => {
+            const response = {file: 'http://localhost:8080/download.pdf'}; window.open(response.file); }, 100);
+    }
+
     editTask(id: number) {
 
         let newName = this.state.txtForEdit;
@@ -48,9 +64,9 @@ class Task extends React.Component<TaskProps, any> {
 
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].id === id) {
-                let editedTask  = arr[i];
-                editedTask.name  = newName;
-                editedTask.path  = newPath;
+                let editedTask = arr[i];
+                editedTask.name = newName;
+                editedTask.path = newPath;
             }
         }
 
@@ -116,6 +132,9 @@ class Task extends React.Component<TaskProps, any> {
                 <h2>Tasks</h2>
 
                 <button onClick={this.newTask.bind(this, 'custom data')}>add</button>
+                <button onClick={this.downloadCsv}>users csv</button>
+                <button onClick={this.downloadXls}>users xls</button>
+                <button onClick={this.downloadPdf}>users pdf</button>
 
                 {this.state.tasks.map((task: TaskDto) =>
                     <div key={task.id}>

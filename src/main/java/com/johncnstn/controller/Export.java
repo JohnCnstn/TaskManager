@@ -30,6 +30,7 @@ public class Export {
     }
 
     @RequestMapping(value = "/downloadCSV", method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:3000")
     public String downloadCSV(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         model.put("users", userService.findAll());
         csvView.buildCsvDocument(model, request, response);
