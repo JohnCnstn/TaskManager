@@ -23,7 +23,8 @@ class Task extends React.Component<TaskProps, any> {
         this.state = {
             tasks: [],
             idForEdit: -1,
-            txtForEdit: 'edited txt',
+            txtForEdit: 'name',
+            editPath: 'path',
             edit: false,
             isLoading: false
         };
@@ -40,15 +41,16 @@ class Task extends React.Component<TaskProps, any> {
 
     editTask(id: number) {
 
-        var text = this.state.txtForEdit;
+        let newName = this.state.txtForEdit;
+        let newPath = this.state.editPath;
 
         let arr = this.state.tasks;
 
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].id === id) {
                 let editedTask  = arr[i];
-                editedTask.name  = text;
-                editedTask.path  = text;
+                editedTask.name  = newName;
+                editedTask.path  = newPath;
             }
         }
 
@@ -85,12 +87,20 @@ class Task extends React.Component<TaskProps, any> {
         return (
             <div className="box">
                 <input type="text" onChange={this.changeEditedText.bind(this, event)} value={this.state.txtForEdit}/>
+                <br/>
+                <input type="text" onChange={this.changePath.bind(this, event)} value={this.state.editPath}/>
                 <button onClick={this.editTask.bind(this, id)}>edit</button>
             </div>
         );
     }
 
     changeEditedText(event: Event) {
+        if (event.target != null) {
+            this.setState({value: event.target.valueOf()});
+        }
+    }
+
+    changePath(event: Event) {
         if (event.target != null) {
             this.setState({value: event.target.valueOf()});
         }
