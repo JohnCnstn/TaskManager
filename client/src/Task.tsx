@@ -17,6 +17,10 @@ interface TaskProps {
     projectId: number;
 }
 
+const editDivStyle = {
+    zIndex: 1,
+};
+
 class Task extends React.Component<TaskProps, any> {
     constructor(props: TaskProps) {
         super(props);
@@ -102,7 +106,7 @@ class Task extends React.Component<TaskProps, any> {
     rendEdit(id: number) {
         return (
             <div className="box">
-                <input type="text" onChange={this.changeEditedText.bind(this, event)} value={this.state.txtForEdit}/>
+                <input style={editDivStyle} type="text" onChange={this.changeEditedText.bind(this, event)} defaultValue={this.state.txtForEdit}/>
                 <br/>
                 <input type="text" onChange={this.changePath.bind(this, event)} value={this.state.editPath}/>
                 <button onClick={this.editTask.bind(this, id)}>edit</button>
@@ -132,6 +136,7 @@ class Task extends React.Component<TaskProps, any> {
                 <h2>Tasks</h2>
 
                 <button onClick={this.newTask.bind(this, 'custom data')}>add</button>
+                <br/>
                 <button onClick={this.downloadCsv}>users csv</button>
                 <button onClick={this.downloadXls}>users xls</button>
                 <button onClick={this.downloadPdf}>users pdf</button>
