@@ -28,7 +28,6 @@ public class ProjectRepositoryTest {
 
         Manager manager = new Manager();
         UserProfile userProfile = new UserProfile();
-        userProfile.getType();
         manager.setUserProfile(userProfile);
         project.setManager(manager);
 
@@ -42,7 +41,30 @@ public class ProjectRepositoryTest {
         Project found = projectRepository.findByName(project.getName());
 
         // then
-        assert  (found.getName()) .equals(project.getName());
+        assert (found.getName()).equals(project.getName());
+    }
+
+    @Test
+    public void whenCantFindByName_thenReturnNull() {
+        // given
+        Project project = new Project("aaa");
+
+        Manager manager = new Manager();
+        UserProfile userProfile = new UserProfile();
+        manager.setUserProfile(userProfile);
+        project.setManager(manager);
+
+        entityManager.persist(manager);
+        entityManager.flush();
+
+        entityManager.persist(project);
+        entityManager.flush();
+
+        // when
+        Project found = projectRepository.findByName("zzz");
+
+        // then
+        assert (found == null);
     }
 
     @Test
@@ -54,7 +76,6 @@ public class ProjectRepositoryTest {
 
         Manager manager = new Manager();
         UserProfile userProfile = new UserProfile();
-        userProfile.getType();
         manager.setUserProfile(userProfile);
         project.setManager(manager);
 
@@ -68,6 +89,81 @@ public class ProjectRepositoryTest {
         Project found = projectRepository.findByDescription(project.getDescription());
 
         // then
-        assert   (found.getId()) == (project.getId());
+        assert (found.getId()) == (project.getId());
+    }
+
+    @Test
+    public void whenCantFindByDescription_thenReturnNull() {
+        // given
+        Project project = new Project();
+
+        project.setDescription("odkodk");
+
+        Manager manager = new Manager();
+        UserProfile userProfile = new UserProfile();
+        manager.setUserProfile(userProfile);
+        project.setManager(manager);
+
+        entityManager.persist(manager);
+        entityManager.flush();
+
+        entityManager.persist(project);
+        entityManager.flush();
+
+        // when
+        Project found = projectRepository.findByDescription("zzz");
+
+        // then
+        assert (found == null);
+    }
+
+    @Test
+    public void whenFindByQuantity_thenReturnProject() {
+        // given
+        Project project = new Project();
+
+        project.setQuantity(10);
+
+        Manager manager = new Manager();
+        UserProfile userProfile = new UserProfile();
+        manager.setUserProfile(userProfile);
+        project.setManager(manager);
+
+        entityManager.persist(manager);
+        entityManager.flush();
+
+        entityManager.persist(project);
+        entityManager.flush();
+
+        // when
+        Project found = projectRepository.findByQuantity(project.getQuantity());
+
+        // then
+        assert (found.getId()) == (project.getId());
+    }
+
+    @Test
+    public void whenCantFindByQuantity_thenReturnNull() {
+        // given
+        Project project = new Project();
+
+        project.setQuantity(10);
+
+        Manager manager = new Manager();
+        UserProfile userProfile = new UserProfile();
+        manager.setUserProfile(userProfile);
+        project.setManager(manager);
+
+        entityManager.persist(manager);
+        entityManager.flush();
+
+        entityManager.persist(project);
+        entityManager.flush();
+
+        // when
+        Project found = projectRepository.findByQuantity(1111111);
+
+        // then
+        assert (found == null);
     }
 }
