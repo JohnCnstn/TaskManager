@@ -7,6 +7,8 @@ import java.util.List;
 
 @Service
 public interface TaskService {
+    Task findByName(String name);
+    Task findByPath(String path);
     List<Task> findAll();
     List<Task> findAllByProjectId(long id);
 }
