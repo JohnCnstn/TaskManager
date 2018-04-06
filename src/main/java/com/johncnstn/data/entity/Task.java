@@ -25,6 +25,8 @@ public class Task {
     @Setter
     private String path;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name="project_id", nullable=false)
     private Project project;
