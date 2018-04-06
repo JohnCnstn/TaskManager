@@ -12,6 +12,8 @@ public interface ProjectService {
     void delete(long id);
     Project findOne(long id);
     Project findByName(String name);
+    Project findByDescription(String description);
+    Project findByQuantity(long id);
     void createNewProject(ProjectDto projectDto);
     void updateProject(Project project);
 }

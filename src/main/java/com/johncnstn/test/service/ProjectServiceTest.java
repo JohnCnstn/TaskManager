@@ -36,8 +36,16 @@ public class ProjectServiceTest {
     @Before
     public void setUp() {
         Project project = new Project("alex");
+        project.setDescription("ddd");
+        project.setQuantity(1);
 
         Mockito.when(projectRepository.findByName(project.getName()))
+                .thenReturn(project);
+
+        Mockito.when(projectRepository.findByDescription(project.getDescription()))
+                .thenReturn(project);
+
+        Mockito.when(projectRepository.findByQuantity(project.getQuantity()))
                 .thenReturn(project);
     }
 
@@ -48,5 +56,43 @@ public class ProjectServiceTest {
 
         assert (found.getName())
                 .equals(name);
+    }
+
+    @Test
+    public void whenNotValidName_thenProjectShouldNotBeFound() {
+        String name = "d";
+        Project found = projectService.findByName(name);
+        assert found == null;
+    }
+
+    @Test
+    public void whenValidDescription_thenProjectShouldBeFound() {
+        String description = "ddd";
+        Project found = projectService.findByDescription(description);
+
+        assert (found.getDescription())
+                .equals(description);
+    }
+
+    @Test
+    public void whenNotValidDescription_thenProjectShouldNotBeFound() {
+        String description = "d";
+        Project found = projectService.findByDescription(description);
+        assert found == null;
+    }
+
+    @Test
+    public void whenValidQuantity_thenProjectShouldBeFound() {
+        int quantity = 1;
+        Project found = projectService.findByQuantity(quantity);
+
+        assert (found.getQuantity()) == quantity;
+    }
+
+    @Test
+    public void whenNotValidQuantity_thenProjectShouldNotBeFound() {
+        int quantity = 2;
+        Project found = projectService.findByQuantity(quantity);
+        assert found == null;
     }
 }
