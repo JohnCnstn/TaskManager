@@ -44,6 +44,7 @@ public class ProjectRepositoryTest {
         // then
         assert  (found.getName()) .equals(project.getName());
     }
+
     @Test
     public void whenFindByDescription_thenReturnProject() {
         // given
