@@ -10,4 +10,8 @@ import java.util.List;
 public interface UserService {
     List<User> findAllByUserProfile(UserProfile userProfile);
     List<User> findAll();
+    User findByFirstName(String firstName);
+    User findByLastName(String lastName);
+    User findByUserName(String userName);
+    User findByEmail(String email);
 }
