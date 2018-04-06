@@ -4,3 +4,5 @@ target
 out
 SpringBoot.iml
 spring-boot-web-thymeleaf.iml
+
+node_modules

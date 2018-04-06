@@ -11,6 +11,12 @@ public interface ProjectService {
     List<Project> findAll();
     void delete(long id);
     Project findOne(long id);
+<<<<<<< HEAD
+=======
+    Project findByName(String name);
+    Project findByDescription(String description);
+    Project findByQuantity(long id);
+>>>>>>> f4f3d8cdf813a4cf165d18841f570002778d425e
     void createNewProject(ProjectDto projectDto);
     void updateProject(Project project);
 }

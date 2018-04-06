@@ -27,9 +27,11 @@ public class Project {
     @Column(name = "description")
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy="project")
     private Set<Task> tasks;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="manager_id", nullable=false)
     private Manager manager;

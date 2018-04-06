@@ -22,6 +22,19 @@ public class TaskServiceImpl implements TaskService {
     private ProjectRepository projectRepository;
 
     @Override
+<<<<<<< HEAD
+=======
+    public Task findByName(String name) {
+        return taskRepository.findByName(name);
+    }
+
+    @Override
+    public Task findByPath(String path) {
+        return taskRepository.findByPath(path);
+    }
+
+    @Override
+>>>>>>> f4f3d8cdf813a4cf165d18841f570002778d425e
     public List<Task> findAll() {
         return taskRepository.findAll();
     }

@@ -48,6 +48,24 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+<<<<<<< HEAD
+=======
+    public Project findByName(String name) {
+        return projectRepository.findByName(name);
+    }
+
+    @Override
+    public Project findByDescription(String description) {
+        return projectRepository.findByDescription(description);
+    }
+
+    @Override
+    public Project findByQuantity(long id) {
+        return projectRepository.findByQuantity(id);
+    }
+
+    @Override
+>>>>>>> f4f3d8cdf813a4cf165d18841f570002778d425e
     public void createNewProject(ProjectDto projectDto) {
         Project project = new Project();
         project.setName(projectDto.getName());
