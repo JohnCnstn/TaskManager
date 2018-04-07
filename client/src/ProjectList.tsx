@@ -47,11 +47,11 @@ class ProjectList extends React.Component<{}, any> {
                             <tr key={project.id}>
                                 <td>{project.name}</td>
                                 <td>{project.description}</td>
+                                <td><Task projectId={project.id}/></td>
                             </tr>
                         )}
                     </table>
                 </div>
-                        <Task projectId={project.id}/>
         );
     }
 }
