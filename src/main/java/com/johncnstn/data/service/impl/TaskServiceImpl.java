@@ -22,6 +22,16 @@ public class TaskServiceImpl implements TaskService {
     private ProjectRepository projectRepository;
 
     @Override
+    public void delete(long id) {
+        taskRepository.delete(id);
+    }
+
+    @Override
+    public void save(Task task) {
+        taskRepository.save(task);
+    }
+
+    @Override
     public Task findByName(String name) {
         return taskRepository.findByName(name);
     }
@@ -29,6 +39,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task findByPath(String path) {
         return taskRepository.findByPath(path);
+    }
+
+    @Override
+    public Task findOne(long id) {
+        return taskRepository.findOne(id);
     }
 
     @Override

@@ -22,13 +22,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class UserServiceTest {
-    @TestConfiguration
-    static class ProjectServiceImplTestContextConfiguration {
-        @Bean
-        public UserService employeeService() {
-            return new UserServiceImpl();
-        }
-    }
+//    @TestConfiguration
+//    static class ProjectServiceImplTestContextConfiguration {
+//        @Bean
+//        public UserService employeeService() {
+//            return new UserServiceImpl();
+//        }
+//    }
 
     @Autowired
     private UserService userService;

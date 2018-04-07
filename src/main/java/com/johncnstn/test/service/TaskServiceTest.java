@@ -18,14 +18,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class TaskServiceTest {
-
-    @TestConfiguration
-    static class ProjectServiceImplTestContextConfiguration {
-        @Bean
-        public TaskService employeeService() {
-            return new TaskServiceImpl();
-        }
-    }
+//
+//    @TestConfiguration
+//    static class ProjectServiceImplTestContextConfiguration {
+//        @Bean
+//        public TaskService employeeService() {
+//            return new TaskServiceImpl();
+//        }
+//    }
 
     @Autowired
     private TaskService taskService;
