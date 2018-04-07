@@ -13,6 +13,20 @@ const logo = require('./logo.svg');
 
 class App extends React.Component {
 
+    downloadCsv() {
+        setTimeout(() => {
+            const response = {file: 'http://localhost:8080/downloadCSV'}; window.open(response.file); }, 100);
+    }
+
+    downloadXls() {
+        setTimeout(() => {
+            const response = {file: 'http://localhost:8080/download.xls'}; window.open(response.file); }, 100);
+    }
+
+    downloadPdf() {
+        setTimeout(() => {
+            const response = {file: 'http://localhost:8080/download.pdf'}; window.open(response.file); }, 100);
+    }
     render() {
         return (
             <Form componentClass="fieldset">
@@ -30,6 +44,11 @@ class App extends React.Component {
                             <li><Link to={'/workers'}>WorkerList</Link></li>
                             <li><Link to={'/projects'}>ProjectList</Link></li>
                             <li><Link to={'/tasks'}>TaskList</Link></li>
+
+                            <button onClick={this.downloadCsv}>users csv</button>
+                            <button onClick={this.downloadXls}>users xls</button>
+                            <button onClick={this.downloadPdf}>users pdf</button>
+
                         </ul>
                         <hr/>
 
