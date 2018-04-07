@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './list.css';
 
 interface Task {
     id: number;
@@ -35,14 +36,19 @@ class TaskList extends React.Component<{}, any> {
 
         return (
             <div>
-                <h2>Task List</h2>
-
-                {tasks.map((task: Task) =>
-                    <div key={task.id}>
-                        {task.name}:
-                        {task.path}
-                    </div>
-                )}
+                <h2>Tasks</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Path</th>
+                    </tr>
+                    {tasks.map((task: Task) =>
+                        <tr key={task.id}>
+                            <td>{task.name}</td>
+                            <td>{task.path}</td>
+                        </tr>
+                    )}
+                </table>
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './list.css';
 
 interface Worker {
     id: number;
@@ -36,13 +37,19 @@ class WorkerList extends React.Component<{}, any> {
 
         return (
             <div>
-                <h2>Worker List</h2>
-                {workers.map((worker: Worker) =>
-                    <div key={worker.id}>
-                        {worker.firstName}:
-                        {worker.lastName}
-                    </div>
-                )}
+                <h2>Workers</h2>
+                <table>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                    </tr>
+                    {workers.map((worker: Worker) =>
+                        <tr key={worker.id}>
+                            <td>{worker.firstName}</td>
+                            <td>{worker.lastName}</td>
+                        </tr>
+                    )}
+                </table>
             </div>
         );
     }

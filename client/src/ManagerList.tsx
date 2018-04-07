@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './list.css';
 
 interface Manager {
     id: number;
@@ -36,13 +37,19 @@ class ManagerList extends React.Component<{}, any> {
 
         return (
             <div>
-                <h2>Manager List</h2>
-                {managers.map((manager: Manager) =>
-                    <div key={manager.id}>
-                        {manager.firstName}:
-                        {manager.lastName}
-                    </div>
-                )}
+                <h2>Managers</h2>
+                <table>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                    </tr>
+                    {managers.map((manager: Manager) =>
+                        <tr key={manager.id}>
+                            <td>{manager.firstName}</td>
+                            <td>{manager.lastName}</td>
+                        </tr>
+                    )}
+                </table>
             </div>
         );
     }

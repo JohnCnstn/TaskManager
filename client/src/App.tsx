@@ -1,15 +1,12 @@
 import * as React from 'react';
 
 import './App.css';
-import { Form } from 'react-bootstrap';
 
 import ProjectList from './ProjectList';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import TaskList from './TaskList';
 import ManagerList from './ManagerList';
 import WorkerList from './WorkerList';
-
-const logo = require('./logo.svg');
 
 class App extends React.Component {
 
@@ -30,16 +27,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <Form componentClass="fieldset">
                 <Router>
                     <div>
-                        <div className="App">
-                            <div className="App-header">
-                                <img src={logo} className="App-logo" alt="logo"/>
-                                <h2>Welcome to Task Manager App</h2>
-                            </div>
-                        </div>
-                        <h2>Welcome to React Router Tutorial</h2>
                         <ul>
                             <li><Link to={'/managers'}>ManagerList</Link></li>
                             <li><Link to={'/workers'}>WorkerList</Link></li>
@@ -51,7 +40,6 @@ class App extends React.Component {
                             <button onClick={this.downloadPdf}>users pdf</button>
 
                         </ul>
-                        <hr/>
 
                         <Switch>
                             <Route path="/managers" component={ManagerList}/>
@@ -61,7 +49,6 @@ class App extends React.Component {
                         </Switch>
                     </div>
                 </Router>
-            </Form>
         );
     }
 }
