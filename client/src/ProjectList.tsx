@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Task from './Task';
 
 interface Project {
@@ -35,24 +34,18 @@ class ProjectList extends React.Component<{}, any> {
         }
 
         return (
-            <Router>
-                <div>
-                    <h2>Project List</h2>
-                    {projects.map((project: Project) =>
-                        <div key={project.id}>
-                            {project.name}:
-                            {project.description}
+            <div>
+                <h2>Project List</h2>
+                {projects.map((project: Project) =>
+                    <div key={project.id}>
+                        {project.name}:
+                        {project.description}
 
-                            <Link to={'/tasks'}>Task</Link>
+                        <Task projectId={project.id}/>
 
-                            <Switch>
-                                <Route path={'/tasks'} render={() => <Task projectId={project.id}/>}/>
-                            </Switch>
-
-                        </div>
-                    )}
-                </div>
-            </Router>
+                    </div>
+                )}
+            </div>
         );
     }
 }

@@ -27,6 +27,7 @@ class App extends React.Component {
         setTimeout(() => {
             const response = {file: 'http://localhost:8080/download.pdf'}; window.open(response.file); }, 100);
     }
+
     render() {
         return (
             <Form componentClass="fieldset">
