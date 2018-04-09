@@ -97,7 +97,7 @@ class App extends React.Component<any, any> {
 
                             <br/>
 
-                            <input onChange={(event) => this.setState({password: event.target.value})}/>
+                            <input type="password" onChange={(event) => this.setState({password: event.target.value})}/>
 
                             <button onClick={this.login.bind(this, '')}>login</button>
 

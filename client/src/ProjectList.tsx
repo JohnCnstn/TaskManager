@@ -21,7 +21,6 @@ class ProjectList extends React.Component<{}, any> {
         this.setState({isLoading: true});
 
         fetch('http://localhost:8080/projects')
-
             .then(response => response.json())
             .then(data => this.setState({projects: data, isLoading: false}));
     }
