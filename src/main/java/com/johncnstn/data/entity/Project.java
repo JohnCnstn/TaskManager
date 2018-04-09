@@ -36,6 +36,7 @@ public class Project {
     @JoinColumn(name="manager_id", nullable=false)
     private Manager manager;
 
+    @JsonIgnore
     @OneToMany(mappedBy="project")
     private Set<Worker> workers;
 

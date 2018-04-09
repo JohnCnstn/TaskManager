@@ -72,6 +72,7 @@ class App extends React.Component<any, any> {
 
             return response.text();
         }).then(data => this.setState({role: data}));
+
     }
 
     logout() {
@@ -121,7 +122,7 @@ class App extends React.Component<any, any> {
                         <Switch>
                             <Route path="/managers" render={routeProps => <ManagerList role={this.state.role}/>}/>
                             <Route path="/workers" component={WorkerList}/>
-                            <Route path="/projects" component={ProjectList}/>
+                            <Route path="/projects" render={routeProps => <ProjectList userName={this.state.userName} role={this.state.role}/>}/>
                             <Route path="/tasks" component={TaskList}/>
                         </Switch>
                     </div>
@@ -130,5 +131,4 @@ class App extends React.Component<any, any> {
         );
     }
 }
-
 export default App;
