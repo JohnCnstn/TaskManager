@@ -24,18 +24,36 @@ class App extends React.Component<any, any> {
     }
 
     downloadCsv() {
-        setTimeout(() => {
-            const response = {file: 'http://localhost:8080/downloadCSV'}; window.open(response.file); }, 100);
+        if (this.state.role === 'ADMIN') {
+            setTimeout(() => {
+                const response = {file: 'http://localhost:8080/downloadCSV'};
+                window.open(response.file);
+            }, 100);
+        } else {
+            alert('Access denied!');
+        }
     }
 
     downloadXls() {
-        setTimeout(() => {
-            const response = {file: 'http://localhost:8080/download.xls'}; window.open(response.file); }, 100);
+        if (this.state.role === 'ADMIN') {
+            setTimeout(() => {
+                const response = {file: 'http://localhost:8080/download.xls'};
+                window.open(response.file);
+            }, 100);
+        } else {
+            alert('Access denied!');
+        }
     }
 
     downloadPdf() {
-        setTimeout(() => {
-            const response = {file: 'http://localhost:8080/download.pdf'}; window.open(response.file); }, 100);
+        if (this.state.role === 'ADMIN') {
+            setTimeout(() => {
+                const response = {file: 'http://localhost:8080/download.pdf'};
+                window.open(response.file);
+            }, 100);
+        } else {
+            alert('Access denied!');
+        }
     }
 
     login() {
@@ -46,16 +64,14 @@ class App extends React.Component<any, any> {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({userName: this.state.userName, password: this.state.password})
+        }).then(response => {
 
-        })            .then(response => {
-            if (response.status === 200) {
-                this.setState({role: 'MANAGER'});
-                alert('good job');
-            } else {
-                alert('wrong username or password');
+            if (response.status === 500) {
+                alert('Wrong username or password!');
             }
-        });
 
+            return response.text();
+        }).then(data => this.setState({role: data}));
     }
 
     logout() {
@@ -77,13 +93,13 @@ class App extends React.Component<any, any> {
 
                         <div className="box">
 
-                        <input onChange={(event) => this.setState({userName: event.target.value})}/>
+                            <input onChange={(event) => this.setState({userName: event.target.value})}/>
 
-                        <br/>
+                            <br/>
 
-                        <input onChange={(event) => this.setState({password: event.target.value})}/>
+                            <input onChange={(event) => this.setState({password: event.target.value})}/>
 
-                        <button onClick={this.login.bind(this, '')}>login</button>
+                            <button onClick={this.login.bind(this, '')}>login</button>
 
                         </div>
 
@@ -93,9 +109,9 @@ class App extends React.Component<any, any> {
                             <li><Link to={'/projects'}>ProjectList</Link></li>
                             <li><Link to={'/tasks'}>TaskList</Link></li>
 
-                            <button onClick={this.downloadCsv}>users csv</button>
-                            <button onClick={this.downloadXls}>users xls</button>
-                            <button onClick={this.downloadPdf}>users pdf</button>
+                            <button onClick={this.downloadCsv.bind(this, '')}>users csv</button>
+                            <button onClick={this.downloadXls.bind(this, '')}>users xls</button>
+                            <button onClick={this.downloadPdf.bind(this, '')}>users pdf</button>
 
                             <button onClick={this.logout.bind(this, '')}>Logout</button>
 

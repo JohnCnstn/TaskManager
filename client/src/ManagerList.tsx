@@ -19,7 +19,7 @@ class ManagerList extends React.Component<any, any> {
     componentDidMount() {
         this.setState({isLoading: true});
 
-        if (this.props.role === 'MANAGER') {
+        if ((this.props.role === 'MANAGER') || (this.props.role === 'ADMIN')) {
 
             fetch('http://localhost:8080/managers')
                 .then(response => response.json())
