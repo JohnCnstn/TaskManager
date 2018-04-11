@@ -8,7 +8,7 @@ interface Project {
     description: string;
 }
 
-class ProjectList extends React.Component<{}, any> {
+class ProjectList extends React.Component<any, any> {
     constructor() {
         super({});
 
@@ -21,10 +21,21 @@ class ProjectList extends React.Component<{}, any> {
     componentDidMount() {
         this.setState({isLoading: true});
 
-        fetch('http://localhost:8080/projects')
+        if ((this.props.role === 'MANAGER') || (this.props.role === 'ADMIN')) {
 
-            .then(response => response.json())
-            .then(data => this.setState({projects: data, isLoading: false}));
+            fetch('http://localhost:8080/projects')
+                .then(response => response.json())
+                .then(data => this.setState({projects: data, isLoading: false}));
+
+        }
+
+        if ((this.props.role === 'WORKER')) {
+
+            fetch('http://localhost:8080/project/' + this.props.userName)
+                .then(response => response.json())
+                .then(data => this.setState({projects: data, isLoading: false}));
+
+        }
     }
 
     render() {

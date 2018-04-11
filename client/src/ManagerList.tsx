@@ -7,12 +7,8 @@ interface Manager {
     lastName: string;
 }
 
-interface ManagerListProps {
-
-}
-
-class ManagerList extends React.Component<{}, any> {
-    constructor(props: ManagerListProps) {
+class ManagerList extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
 
         this.state = {
@@ -24,9 +20,13 @@ class ManagerList extends React.Component<{}, any> {
     componentDidMount() {
         this.setState({isLoading: true});
 
-        fetch('http://localhost:8080/managers')
-            .then(response => response.json())
-            .then(data => this.setState({managers: data, isLoading: false}));
+        if ((this.props.role === 'MANAGER') || (this.props.role === 'ADMIN')) {
+
+            fetch('http://localhost:8080/managers')
+                .then(response => response.json())
+                .then(data => this.setState({managers: data, isLoading: false}));
+
+        }
     }
     render() {
         const {managers, isLoading} = this.state;

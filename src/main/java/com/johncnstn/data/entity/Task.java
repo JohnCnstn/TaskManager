@@ -1,5 +1,6 @@
 package com.johncnstn.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +26,7 @@ public class Task {
     @Setter
     private String path;
 
+    @JsonIgnore
     @Getter
     @Setter
     @ManyToOne
