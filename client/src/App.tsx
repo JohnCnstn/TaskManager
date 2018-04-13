@@ -15,8 +15,8 @@ class App extends React.Component<any, any> {
 
         this.state = {
             role: 'none',
-            userName: 'JohnCnstn',
-            password: 'faster',
+            userName: '',
+            password: '',
             classname: 'login-box'
         };
     }
@@ -75,7 +75,7 @@ class App extends React.Component<any, any> {
     }
 
     logout() {
-        this.setState({role: 'none', classname: 'login-box'});
+        this.setState({role: 'none', classname: 'login-box', userName: '', password: ''});
     }
 
     render() {
