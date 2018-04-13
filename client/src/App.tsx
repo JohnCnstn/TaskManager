@@ -3,12 +3,10 @@ import * as React from 'react';
 import './App.css';
 
 import ProjectList from './ProjectList';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import TaskList from './TaskList';
 import ManagerList from './ManagerList';
 import WorkerList from './WorkerList';
-
-const logo = require('./logo.svg');
 
 class App extends React.Component<any, any> {
 
@@ -17,8 +15,9 @@ class App extends React.Component<any, any> {
 
         this.state = {
             role: 'none',
-            userName: '',
-            password: ''
+            userName: 'JohnCnstn',
+            password: 'faster',
+            classname: 'login-box'
         };
     }
 
@@ -56,6 +55,7 @@ class App extends React.Component<any, any> {
     }
 
     login() {
+        this.setState( {classname: 'hide'});
         fetch('http://localhost:8080/myLogin', {
             method: 'post',
             headers: {
@@ -80,50 +80,57 @@ class App extends React.Component<any, any> {
 
     render() {
         return (
-                <Router>
-                    <div>
-                        <div className="App">
-                            <div className="App-header">
-                                <h2>Welcome to Task Manager App</h2>
-
-                        <div className="box">
-
-                            <input onChange={(event) => this.setState({userName: event.target.value})}/>
-
-                            <br/>
-
-                            <input type="password" onChange={(event) => this.setState({password: event.target.value})}/>
-
-                            <button onClick={this.login.bind(this, '')}>login</button>
-
-                        </div>
-
+            <Router>
+                <div>
+                    <div className="App">
+                        <div className="App-header">
+                            <h2>Welcome to Task Manager App</h2>
+                            <div className={this.state.classname}>
+                                <label>Login</label>
+                                <input value={this.state.userName} onChange={(event) => this.setState({userName: event.target.value})}/>
+                                <label>Password</label>
+                                <input type="password" value={this.state.password} onChange={(event) => this.setState({password: event.target.value})}/>
+                                <button onClick={this.login.bind(this, '')}>Login</button>
                             </div>
                         </div>
-                                <img src={logo} className="App-logo" alt="logo"/>
-                        <ul>
-                            <li><Link to={'/managers'}>ManagerList</Link></li>
-                            <li><Link to={'/workers'}>WorkerList</Link></li>
-                            <li><Link to={'/projects'}>ProjectList</Link></li>
-                            <li><Link to={'/tasks'}>TaskList</Link></li>
-
-                            <button onClick={this.downloadCsv.bind(this, '')}>users csv</button>
-                            <button onClick={this.downloadXls.bind(this, '')}>users xls</button>
-                            <button onClick={this.downloadPdf.bind(this, '')}>users pdf</button>
-
-                            <button onClick={this.logout.bind(this, '')}>Logout</button>
-
-                        </ul>
-
-                        <Switch>
-                            <Route path="/managers" render={routeProps => <ManagerList role={this.state.role}/>}/>
-                            <Route path="/workers" component={WorkerList}/>
-                            <Route path="/projects" render={routeProps => <ProjectList userName={this.state.userName} role={this.state.role}/>}/>
-                            <Route path="/tasks" component={TaskList}/>
-                        </Switch>
                     </div>
-                </Router>
+                    <ul className="top-menu">
+                        <li>
+                            <Link to={'/managers'}>ManagerList</Link>
+                        </li>
+                        <li>
+                            <Link to={'/workers'}>WorkerList</Link>
+                        </li>
+                        <li>
+                            <Link to={'/projects'}>ProjectList</Link>
+                        </li>
+                        <li>
+                            <Link to={'/tasks'}>TaskList</Link>
+                        </li>
+                        <li>
+                            <button onClick={this.downloadCsv.bind(this, '')}>Users CSV</button>
+                        </li>
+                        <li>
+                            <button onClick={this.downloadXls.bind(this, '')}>Users XLS</button>
+                        </li>
+                        <li>
+                            <button onClick={this.downloadPdf.bind(this, '')}>Users PDF</button>
+                        </li>
+                        <li>
+                            <button onClick={this.logout.bind(this, '')}>Logout</button>
+                        </li>
+                    </ul>
+
+                    <Switch>
+                        <Route path="/managers" render={routeProps => <ManagerList role={this.state.role}/>}/>
+                        <Route path="/workers" component={WorkerList}/>
+                        <Route path="/projects" render={routeProps => <ProjectList userName={this.state.userName} role={this.state.role}/>}/>
+                        <Route path="/tasks" component={TaskList}/>
+                    </Switch>
+                </div>
+            </Router>
         );
     }
 }
+
 export default App;

@@ -7,7 +7,8 @@ ul {
 }
 
 li {
-    float: left;
+    display: inline-flex;
+    justify-content: center;
 }
 
 li a {
@@ -20,4 +21,71 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+
+.add-button {
+    background-color: #6495ED;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.task-buttons {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task-buttons button,
+.task-edit button,
+.top-menu button,
+.login-box button {
+    background-color: #6495ED;
+    border: none;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.task-info {
+    margin-right: auto;
+}
+
+.task-edit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.top-menu button {
+    align-content: center;
+    height: 100%;
+}
+
+.login-box {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+.hide {
+    display: none;
 }

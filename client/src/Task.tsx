@@ -113,14 +113,14 @@ class Task extends React.Component<TaskProps, any> {
     rendEdit(id: number) {
         return (
             <div className="box">
+                <div className="task-edit">
+                    <label>Name</label>
+                    <input onChange={(event) =>  this.setState({ txtForEdit: event.target.value })}/>
+                    <label>Path</label>
+                    <input onChange={(event) =>  this.setState({ editPath: event.target.value })}/>
 
-                <input onChange={(event) =>  this.setState({ txtForEdit: event.target.value })}/>
-
-                <br/>
-
-                <input onChange={(event) =>  this.setState({ editPath: event.target.value })}/>
-
-                <button onClick={this.editTask.bind(this, id)}>edit</button>
+                    <button onClick={this.editTask.bind(this, id)}>Edit</button>
+                </div>
             </div>
         );
     }
@@ -132,18 +132,20 @@ class Task extends React.Component<TaskProps, any> {
     rendNorm() {
         return (
             <div>
-                <h2>Tasks</h2>
-
-                <button onClick={this.newTask.bind(this, 'custom data', this.props.projectId)}>add</button>
-                <br/>
-
+                <button className="add-button" onClick={this.newTask.bind(this, 'custom data', this.props.projectId)}>Add new task</button>
                 {this.state.tasks.map((task: TaskDto) =>
-                    <div key={task.id}>
-                        {task.id}:
-                        {task.name}:
-                        {task.path}
-                        <button onClick={this.setEdit.bind(this, task.id, this.props.projectId)}>edit</button>
-                        <button onClick={this.removeTask.bind(this, task.id)}>remove</button>
+                    <div key={task.id} className="task">
+                        <div style={{display: 'inline-flex'}}>
+                            <div className="task-info">
+                                <p>Task ID: {task.id}</p>
+                                <p>Name: {task.name}</p>
+                                <p>Path: {task.path}</p>
+                            </div>
+                            <div className="task-buttons">
+                                <button onClick={this.setEdit.bind(this, task.id, this.props.projectId)}>Edit</button>
+                                <button onClick={this.removeTask.bind(this, task.id)}>Remove</button>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>
