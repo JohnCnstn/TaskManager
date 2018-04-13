@@ -75,7 +75,7 @@ class App extends React.Component<any, any> {
     }
 
     logout() {
-        this.setState({role: 'none'});
+        this.setState({role: 'none', classname: 'login-box'});
     }
 
     render() {
