@@ -34,21 +34,21 @@ li a:hover {
     font-size: 16px;
 }
 
-.task {
+.tour {
     display: flex;
     flex-direction: column;
     justify-content: end;
 }
 
-.task-buttons {
+.tour-buttons {
     width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.task-buttons button,
-.task-edit button,
+.tour-buttons button,
+.tour-edit button,
 .top-menu button,
 .login-box button {
     background-color: #6495ED;
@@ -61,11 +61,11 @@ li a:hover {
     font-size: 16px;
 }
 
-.task-info {
+.tour-info {
     margin-right: auto;
 }
 
-.task-edit {
+.tour-edit {
     display: flex;
     flex-direction: column;
     width: 100%;

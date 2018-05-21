@@ -1,19 +1,19 @@
-var Project = React.createClass({
+var Country = React.createClass({
     render: function() {
         return (
             <tr>
-                <td>{this.props.project.name}</td>
-                <td>{this.props.project.quantity}</td>
-                <td>{this.props.project.description}</td>
+                <td>{this.props.country.name}</td>
+                <td>{this.props.country.quantity}</td>
+                <td>{this.props.country.description}</td>
             </tr>);
     }
 });
 
-var ProjectTable = React.createClass({
+var CountryTable = React.createClass({
     render: function() {
         var rows = [];
-        this.props.projects.forEach(function(project) {
-            rows.push(<Project project={project} />);
+        this.props.countries.forEach(function(country) {
+            rows.push(<Country country={country: country} />);
         });
         return (
             <table>
@@ -29,25 +29,25 @@ var ProjectTable = React.createClass({
 
 var App = React.createClass({
 
-    loadProjectsFromServer: function () {
+    loadCountriesFromServer: function () {
         var self = this;
         $.ajax({
-            url: "http://localhost:8080/api/projects"
+            url: "http://localhost:8080/api/countries"
         }).then(function (data) {
-            self.setState({projects: data._embedded.projects});
+            self.setState({countries: data._embedded.countries});
         });
     },
 
     getInitialState: function () {
-        return {projects: []};
+        return {countries: []};
     },
 
     componentDidMount: function () {
-        this.loadProjectsFromServer();
+        this.loadCountriesFromServer();
     },
 
     render() {
-        return ( <ProjectTable projects={this.state.projects}/> );
+        return ( <CountryTable countries={this.state.countries}/> );
     }
 });
 

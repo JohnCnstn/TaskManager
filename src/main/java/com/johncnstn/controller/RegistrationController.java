@@ -2,7 +2,7 @@ package com.johncnstn.controller;
 
 import com.johncnstn.data.dto.UserDto;
 import com.johncnstn.data.entity.User;
-import com.johncnstn.data.service.WorkerService;
+import com.johncnstn.data.service.ClientService;
 import com.johncnstn.exception.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 public class RegistrationController {
 
     @Autowired
-    private WorkerService userService;
+    private ClientService userService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {

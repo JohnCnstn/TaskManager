@@ -19,10 +19,10 @@ public class UserController {
     @Autowired
     private UserProfileService userProfileService;
 
-    @GetMapping("/workers")
+    @GetMapping("/clients")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<User>> getAllWorkers() {
-        UserProfile userProfile = userProfileService.getById(3);
+    public ResponseEntity<List<User>> getAllClients() {
+        UserProfile userProfile = userProfileService.getById(1);
         return ResponseEntity.ok(userService.findAllByUserProfile(userProfile));
     }
 

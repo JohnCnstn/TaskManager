@@ -9,7 +9,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/home">Task Manager</a>
+            <a class="navbar-brand" href="/home">Tourism Agency</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/home">Home</a></li>
@@ -23,18 +23,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Project Name</th>
-                <th scope="col">Project Description</th>
+                <th scope="col">Country Name</th>
+                <th scope="col">Country Description</th>
                 <th scope="col">More</th>
             </tr>
         </thead>
         <tbody>
-        <th:block th:each="project : ${projectList}">
+        <th:block th:each="country : ${countryList}">
             <tr>
-                <td th:text="${project.name}"></td>
-                <td th:text="${project.description}"></td>
+                <td th:text="${country.name}"></td>
+                <td th:text="${country.description}"></td>
                 <td>
-                    <a th:href="@{/project/{id}(id=${project.id})}">More</a>
+                    <a th:href="@{/country/{id}(id=${country.id})}">More</a>
                 </td>
             </tr>
         </th:block>
@@ -43,14 +43,14 @@
 
     <div sec:authorize="hasAuthority('ROLE_ADMIN')">
 
-        <div class="project-operations">
+        <div class="country-operations">
 
-            <a th:href="@{/createProject}"  style="margin-right: 30%">
-                <button class="btn">Create project</button>
+            <a th:href="@{/createCountry}"  style="margin-right: 30%">
+                <button class="btn">Create country</button>
             </a>
 
 
-            <label style="margin-right: 1%">Download data about projects</label>
+            <label style="margin-right: 1%">Download data about countries</label>
             <a th:href="@{/download.pdf}">
                 <button class="btn">Download PDF</button>
             </a>

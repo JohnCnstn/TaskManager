@@ -1,11 +1,11 @@
 //package com.johncnstn.controller;
 //
-//import com.johncnstn.data.dto.ProjectDto;
-//import com.johncnstn.data.entity.Project;
+//import com.johncnstn.data.dto.CountryDto;
+//import com.johncnstn.data.entity.Country;
 //import com.johncnstn.data.service.ManagerService;
-//import com.johncnstn.data.service.ProjectService;
-//import com.johncnstn.data.service.TaskService;
-//import com.johncnstn.data.service.WorkerService;
+//import com.johncnstn.data.service.CountryService;
+//import com.johncnstn.data.service.TourService;
+//import com.johncnstn.data.service.ClientService;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
 //import org.springframework.ui.Model;
@@ -18,37 +18,37 @@
 //public class ProjectController {
 //
 //    @Autowired
-//    private WorkerService workerService;
+//    private ClientService workerService;
 //
 //    @Autowired
 //    private ManagerService managerService;
 //
 //    @Autowired
-//    private ProjectService projectService;
+//    private CountryService projectService;
 //
 //    @Autowired
-//    private TaskService taskService;
+//    private TourService taskService;
 //
-//    @GetMapping("/project/{id}")
+//    @GetMapping("/country/{id}")
 //    public String getProject(@PathVariable(value = "id") Long id, Model model) {
-//        model.addAttribute("taskList", taskService.findAllByProjectId(id));
-//        return "/project";
+//        model.addAttribute("taskList", taskService.findAllByCountryId(id));
+//        return "/country";
 //    }
 //
-//    @GetMapping("/updateProject/{id}")
+//    @GetMapping("/updateCountry/{id}")
 //    public String getUpdateProject(@PathVariable(value = "id") Long id, Model model) {
-//        model.addAttribute("project", projectService.findOne(id));
+//        model.addAttribute("country", projectService.findOne(id));
 //        model.addAttribute("managerList", managerService.findAll());
 //        model.addAttribute("workerList", workerService.findAll());
-//        return "/updateProject";
+//        return "/updateCountry";
 //    }
 //
-//    @PostMapping("/updateProject/{id}")
-//    public String updateProject(@Valid @ModelAttribute("project") Project project, @PathVariable(value = "id") Long id,
+//    @PostMapping("/updateCountry/{id}")
+//    public String updateCountry(@Valid @ModelAttribute("country") Country country, @PathVariable(value = "id") Long id,
 //                                BindingResult result) {
 //        if (!result.hasErrors()) {
-//            project.setId(id);
-//            updateProject(project);
+//            country.setId(id);
+//            updateCountry(country);
 //        }
 //        if (result.hasErrors()) {
 //            return "registration";
@@ -57,23 +57,23 @@
 //        }
 //    }
 //
-//    @DeleteMapping("/project/{id}")
+//    @DeleteMapping("/country/{id}")
 //    public String deleteProject(@PathVariable(value = "id") Long id, Model model) {
-//        model.addAttribute("project", projectService.findOne(id));
+//        model.addAttribute("country", projectService.findOne(id));
 //        projectService.delete(id);
 //        return "redirect:/home";
 //    }
 //
 //    @GetMapping("/createProject")
 //    public String getCreateProject(Model model) {
-//        model.addAttribute("project", new ProjectDto());
+//        model.addAttribute("country", new CountryDto());
 //        model.addAttribute("managerList", managerService.findAll());
 //        model.addAttribute("workerList", workerService.findAll());
 //        return "/createProject";
 //    }
 //
 //    @PostMapping("/createProject")
-//    public String postProject(@Valid @ModelAttribute("project") ProjectDto projectDto, BindingResult result) {
+//    public String postProject(@Valid @ModelAttribute("country") CountryDto projectDto, BindingResult result) {
 //        if (!result.hasErrors()) {
 //            createProject(projectDto, result);
 //        }
@@ -84,12 +84,12 @@
 //        }
 //    }
 //
-//    private void createProject(ProjectDto projectDto, BindingResult result) {
-//        projectService.createNewProject(projectDto);
+//    private void createProject(CountryDto projectDto, BindingResult result) {
+//        projectService.createNewCountry(projectDto);
 //    }
 //
-//    private void updateProject(Project project) {
-//        projectService.updateProject(project);
+//    private void updateCountry(Country country) {
+//        projectService.updateCountry(country);
 //    }
 //
 //}

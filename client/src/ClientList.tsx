@@ -1,18 +1,22 @@
 import * as React from 'react';
 import './list.css';
 
-interface Manager {
+interface Client {
     id: number;
     firstName: string;
     lastName: string;
 }
 
-class ManagerList extends React.Component<any, any> {
-    constructor(props: any) {
+interface ClientListProps {
+
+}
+
+class ClientList extends React.Component<{}, any> {
+    constructor(props: ClientListProps) {
         super(props);
 
         this.state = {
-            managers: [],
+            clients: [],
             isLoading: false
         };
     }
@@ -20,16 +24,13 @@ class ManagerList extends React.Component<any, any> {
     componentDidMount() {
         this.setState({isLoading: true});
 
-        if ((this.props.role === 'MANAGER') || (this.props.role === 'ADMIN')) {
-
-            fetch('http://localhost:8080/managers')
-                .then(response => response.json())
-                .then(data => this.setState({managers: data, isLoading: false}));
-
-        }
+        fetch('http://localhost:8080/clients')
+            .then(response => response.json())
+            .then(data => this.setState({clients: data, isLoading: false}))
+            .catch(alert);
     }
     render() {
-        const {managers, isLoading} = this.state;
+        const {clients, isLoading} = this.state;
 
         if (isLoading) {
             return <p>Loading...</p>;
@@ -37,7 +38,7 @@ class ManagerList extends React.Component<any, any> {
 
         return (
             <div>
-                <h2>Managers</h2>
+                <h2>Clients</h2>
                 <table>
                     <thead>
                         <tr>
@@ -45,10 +46,10 @@ class ManagerList extends React.Component<any, any> {
                             <th>Last name</th>
                         </tr>
                     </thead>
-                    {managers.map((manager: Manager) =>
-                        <tr key={manager.id}>
-                            <td>{manager.firstName}</td>
-                            <td>{manager.lastName}</td>
+                    {clients.map((client: Client) =>
+                        <tr key={client.id}>
+                            <td>{client.firstName}</td>
+                            <td>{client.lastName}</td>
                         </tr>
                     )}
                 </table>
@@ -57,4 +58,4 @@ class ManagerList extends React.Component<any, any> {
     }
 }
 
-export default ManagerList;
+export default ClientList;

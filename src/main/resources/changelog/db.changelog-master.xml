@@ -18,7 +18,7 @@
         </createTable>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-3">
-        <createTable tableName="project">
+        <createTable tableName="country">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
@@ -31,7 +31,7 @@
         </createTable>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-4">
-        <createTable tableName="task">
+        <createTable tableName="tour">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
@@ -68,7 +68,7 @@
         </createTable>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-7">
-        <createTable tableName="worker">
+        <createTable tableName="client">
             <column name="id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -95,7 +95,7 @@
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="manager"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-11">
-        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="worker"/>
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="client"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-12">
         <addUniqueConstraint columnNames="type" constraintName="UK_k6d5iiad3vb5isxj1munty17o" tableName="user_profile"/>
@@ -105,7 +105,7 @@
                              tableName="worker_qualification"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-14">
-        <createIndex indexName="FKaljx9cf62s9g8u5bivyioukf3" tableName="worker">
+        <createIndex indexName="FKaljx9cf62s9g8u5bivyioukf3" tableName="client">
             <column name="project_id"/>
         </createIndex>
     </changeSet>
@@ -115,17 +115,17 @@
         </createIndex>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-16">
-        <createIndex indexName="FKk8qrwowg31kx7hp93sru1pdqa" tableName="task">
+        <createIndex indexName="FKk8qrwowg31kx7hp93sru1pdqa" tableName="tour">
             <column name="project_id"/>
         </createIndex>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-17">
-        <createIndex indexName="FKmc41im0glyrn8n6u6yfyuy38s" tableName="project">
+        <createIndex indexName="FKmc41im0glyrn8n6u6yfyuy38s" tableName="country">
             <column name="manager_id"/>
         </createIndex>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-18">
-        <createIndex indexName="FKqnfhtny8o2x08inoh1jiqsbwj" tableName="worker">
+        <createIndex indexName="FKqnfhtny8o2x08inoh1jiqsbwj" tableName="client">
             <column name="worker_qualification_id"/>
         </createIndex>
     </changeSet>
@@ -141,10 +141,10 @@
                                  referencedColumnNames="id" referencedTableName="user"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-21">
-        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="worker"
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="client"
                                  constraintName="FKaljx9cf62s9g8u5bivyioukf3" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
-                                 referencedColumnNames="id" referencedTableName="project"/>
+                                 referencedColumnNames="id" referencedTableName="country"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-22">
         <addForeignKeyConstraint baseColumnNames="user_profile_id" baseTableName="user"
@@ -153,25 +153,25 @@
                                  referencedColumnNames="id" referencedTableName="user_profile"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-23">
-        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="task"
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="tour"
                                  constraintName="FKk8qrwowg31kx7hp93sru1pdqa" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
-                                 referencedColumnNames="id" referencedTableName="project"/>
+                                 referencedColumnNames="id" referencedTableName="country"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-24">
-        <addForeignKeyConstraint baseColumnNames="manager_id" baseTableName="project"
+        <addForeignKeyConstraint baseColumnNames="manager_id" baseTableName="country"
                                  constraintName="FKmc41im0glyrn8n6u6yfyuy38s" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="manager"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-25">
-        <addForeignKeyConstraint baseColumnNames="id" baseTableName="worker"
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="client"
                                  constraintName="FKopm5ac7lr65x33baiyy2hj7oi" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="user"/>
     </changeSet>
     <changeSet author="cryst (generated)" id="1517484434209-26">
-        <addForeignKeyConstraint baseColumnNames="worker_qualification_id" baseTableName="worker"
+        <addForeignKeyConstraint baseColumnNames="worker_qualification_id" baseTableName="client"
                                  constraintName="FKqnfhtny8o2x08inoh1jiqsbwj" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="worker_qualification"/>
@@ -335,47 +335,47 @@
             <column name="id">5</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">6</column>
             <column name="worker_qualification_id">1</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">7</column>
             <column name="worker_qualification_id">1</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">8</column>
             <column name="worker_qualification_id">1</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">9</column>
             <column name="worker_qualification_id">1</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">10</column>
             <column name="worker_qualification_id">1</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">11</column>
             <column name="worker_qualification_id">3</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">12</column>
             <column name="worker_qualification_id">2</column>
         </insert>
 
-        <insert tableName="worker">
+        <insert tableName="client">
             <column name="id">13</column>
             <column name="worker_qualification_id">2</column>
         </insert>
 
-        <insert tableName="project">
+        <insert tableName="country">
             <column name="name">Goggle</column>
             <column name="quantity">3</column>
             <column name="description">Эксклюзивный проект Wi-Fi с авторизацией пользователей для крупного мобильного
@@ -384,28 +384,28 @@
             <column name="manager_id">3</column>
         </insert>
 
-        <insert tableName="project">
+        <insert tableName="country">
             <column name="name">Nitronzition</column>
             <column name="quantity">5</column>
             <column name="description">Запуск презентационного сайта компании «Инсталия».</column>
             <column name="manager_id">4</column>
         </insert>
 
-        <insert tableName="project">
+        <insert tableName="country">
             <column name="name">Pear</column>
             <column name="quantity">2</column>
             <column name="description">Перевод ИТ-инфраструктуры клиента на современную гибридную схему.</column>
             <column name="manager_id">2</column>
         </insert>
 
-        <insert tableName="project">
+        <insert tableName="country">
             <column name="name">Quack-Quack</column>
             <column name="quantity">6</column>
             <column name="description">Разработка интернет-сайта для компании «Дональд и Дак».</column>
             <column name="manager_id">5</column>
         </insert>
 
-        <insert tableName="task">
+        <insert tableName="tour">
             <column name="name">Integration</column>
             <column name="path">/all-users.pdf</column>
             <column name="project_id">1</column>

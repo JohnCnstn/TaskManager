@@ -16,5 +16,5 @@ public class Manager extends User{
     @Getter
     @Setter
     @OneToMany(mappedBy="manager")
-    private Set<Project> projects;
+    private Set<Country> countries;
 }

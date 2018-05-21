@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum UserProfileType {
 
-    WORKER("WORKER"),
+    CLIENT("CLIENT"),
     MANAGER("MANAGER"),
     ADMIN("ADMIN");
 

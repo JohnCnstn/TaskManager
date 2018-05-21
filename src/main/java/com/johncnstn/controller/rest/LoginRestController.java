@@ -23,8 +23,8 @@ public class LoginRestController {
         User found = userService.findByUserName(user.getUserName());
         boolean isMatches = encoder.matches(user.getPassword(), found.getPassword());
         if (isMatches) {
-            if (found.getUserProfile().getType().equalsIgnoreCase("WORKER")) {
-                return new ResponseEntity<>("WORKER", HttpStatus.OK);
+            if (found.getUserProfile().getType().equalsIgnoreCase("CLIENT")) {
+                return new ResponseEntity<>("CLIENT", HttpStatus.OK);
             } else if (found.getUserProfile().getType().equalsIgnoreCase("ADMIN")) {
                 return new ResponseEntity<>("ADMIN", HttpStatus.OK);
             } else if (found.getUserProfile().getType().equalsIgnoreCase("MANAGER")) {

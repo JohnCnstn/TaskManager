@@ -6,9 +6,8 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_profile")
-public class UserProfile {
-
+@Table(name = "client_type")
+public class ClientType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -19,6 +18,5 @@ public class UserProfile {
     @Column(name="type", length=15, unique=true, nullable=false)
     @Getter
     @Setter
-    private String type = UserProfileType.CLIENT.getUserProfileType();
-
+    private String type = ClientTypeEnum.KID.getClientType();
 }

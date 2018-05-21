@@ -3,7 +3,7 @@
       xmlns:spring="http://java.sun.com/xml/ns/javaee">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-    <title>Create Country</title>
+    <title>Update Country</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -21,7 +21,7 @@
 </nav>
 <div class="container">
 
-    <form action="/createCountry" th:object="${country}" method="POST" enctype="utf8" style="margin-bottom: 2%">
+    <form th:action="@{/updateCountry/{id}(id=${id})}" th:object="${country}" method="POST" enctype="utf8" style="margin-bottom: 2%">
         <table class="table">
             <thead>
             <tr>
@@ -67,8 +67,6 @@
             </tr>
             </tbody>
         </table>
-
-
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

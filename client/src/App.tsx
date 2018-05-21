@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import './App.css';
 
-import ProjectList from './ProjectList';
+import CountryList from './CountryList';
 import {BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import TaskList from './TaskList';
+import TourList from './TourList';
 import ManagerList from './ManagerList';
-import WorkerList from './WorkerList';
+import ClientList from './ClientList';
 
 class App extends React.Component<any, any> {
 
@@ -84,7 +84,7 @@ class App extends React.Component<any, any> {
                 <div>
                     <div className="App">
                         <div className="App-header">
-                            <h2>Welcome to Task Manager App</h2>
+                            <h2>Welcome to Tour Manager App</h2>
                             <div className={this.state.classname}>
                                 <label>Login</label>
                                 <input value={this.state.userName} onChange={(event) => this.setState({userName: event.target.value})}/>
@@ -99,13 +99,13 @@ class App extends React.Component<any, any> {
                             <Link to={'/managers'}>ManagerList</Link>
                         </li>
                         <li>
-                            <Link to={'/workers'}>WorkerList</Link>
+                            <Link to={'/clients'}>ClientList</Link>
                         </li>
                         <li>
-                            <Link to={'/projects'}>ProjectList</Link>
+                            <Link to={'/countries'}>CountriesList</Link>
                         </li>
                         <li>
-                            <Link to={'/tasks'}>TaskList</Link>
+                            <Link to={'/tours'}>TourList</Link>
                         </li>
                         <li>
                             <button onClick={this.downloadCsv.bind(this, '')}>Users CSV</button>
@@ -123,9 +123,9 @@ class App extends React.Component<any, any> {
 
                     <Switch>
                         <Route path="/managers" render={routeProps => <ManagerList role={this.state.role}/>}/>
-                        <Route path="/workers" component={WorkerList}/>
-                        <Route path="/projects" render={routeProps => <ProjectList userName={this.state.userName} role={this.state.role}/>}/>
-                        <Route path="/tasks" component={TaskList}/>
+                        <Route path="/clients" component={ClientList}/>
+                        <Route path="/countries" render={routeProps => <CountryList userName={this.state.userName} role={this.state.role}/>}/>
+                        <Route path="/tours" component={TourList}/>
                     </Switch>
                 </div>
             </Router>
